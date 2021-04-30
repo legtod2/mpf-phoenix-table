@@ -8,10 +8,8 @@ This version is waiting for the arrival of the cobrapin board, so the config fil
 
 It will work as a virtual demo
 
-Launch two sessions
 mpf both -X
 
-Launch monitor
 mpf monitor
 
 On the playfield monitor you will see the virtual Williams table. On the bottom row you will see the Start button, coin button, shutdown (Bottom left)
