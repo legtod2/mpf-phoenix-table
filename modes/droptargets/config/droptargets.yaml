@@ -1,0 +1,133 @@
+#config_version=5
+# Change sound events for multiplier (use more dramatic sound for each)
+# Last Update Apr 1, 2021
+
+mode:
+  start_events: ball_started
+  priority: 110
+
+# Knock down all 4 left bank drop targets or 4 right bank drop targets and increase multiplier to max of 5x
+counters:
+# Left Bank counter
+  lb_DROP_complete_count:
+    count_events: DROP_lanes_complete
+    events_when_hit: DROP_lanes_done
+    starting_count: 1
+    direction: up
+    count_complete_value: 5
+    disable_on_complete: true
+    persist_state: false
+# Right bank counter
+  rb_DROP_complete_count:
+    count_events: RDROP_lanes_complete
+    events_when_hit: RDROP_lanes_done
+    starting_count: 1
+    direction: up
+    count_complete_value: 5
+    disable_on_complete: true
+    persist_state: false
+
+
+slide_player:
+  DROP_lanes_done: 
+    slide_10:
+      expire: 2s
+  RDROP_lanes_done: 
+    slide_10:
+      expire: 2s
+
+slides:
+  slide_10:
+  - type: text
+    text: (multiplier)X
+
+sound_player:
+# Replace these sound with something better
+  player_multiplier{value==2}: standup_hit_lit
+  player_multiplier{value==3}: standup_hit_lit
+  player_multiplier{value==4}: standup_hit_lit
+  player_multiplier{value==5}: standup_hit_lit
+
+shots:
+  left_drop1:
+    switch: s_lbdrop1
+  left_drop2:
+    switch: s_lbdrop2
+  left_drop3:
+    switch: s_lbdrop3
+  left_drop4:
+    switch: s_lbdrop4
+  right_drop1:
+    switch: s_rbdrop1
+  right_drop2:
+    switch: s_rbdrop2
+  right_drop3:
+    switch: s_rbdrop3
+  right_drop4:
+    switch: s_rbdrop4
+# New
+  left_center_drop:
+    switch: s_lcdrop
+  right_center_drop:
+    switch: s_rcdrop
+
+
+shot_groups:
+  DROP_lanes:
+    shots: left_drop1, left_drop2, left_drop3, left_drop4
+    reset_events:
+      DROP_lanes_lit_complete: 1s
+  RDROP_lanes:
+    shots: right_drop1, right_drop2, right_drop3, right_drop4
+    reset_events:
+      RDROP_lanes_lit_complete: 1s
+# New
+  DROP_a:
+    shots: left_center_drop
+    reset_events:
+  DROP_b:
+    shots: right_center_drop
+    reset_events:
+
+
+variable_player:
+# Left Bank drop targets
+  DROP_lanes_done{count>=2}:
+    my_multiplier: 1
+    multiplier:
+      int: current_player.my_multiplier if current_player.my_multiplier <= 5 else 5
+      action: set
+  DROP_lanes_complete:
+    score: 1000 * current_player.multiplier
+# Right bank drop targets
+  RDROP_lanes_done{count>=2}:
+    my_multiplier: 1
+    multiplier:
+      int: current_player.my_multiplier if current_player.my_multiplier <= 5 else 5
+      action: set
+  RDROP_lanes_complete:
+    score: 1000 * current_player.multiplier
+
+
+show_player:
+# Turn on 2x multiplier playfield lamp
+  player_multiplier{value==2}:
+    playfield_light:
+      show_tokens:
+        lights: l_multiplier2x
+        color1: yellow
+  player_multiplier{value==3}:
+    playfield_light:
+      show_tokens:
+        lights: l_multiplier3x
+        color1: yellow
+  player_multiplier{value==4}:
+    playfield_light:
+      show_tokens:
+        lights: l_multiplier4x
+        color1: yellow
+  player_multiplier{value==5}:
+    playfield_light:
+      show_tokens:
+        lights: l_multiplier5x
+        color1: yellow

@@ -1,0 +1,236 @@
+#config_version=5
+
+# Making either Lane1 or Lane5 will cause both lane1 & lane5 to fall down together.
+# When the ball leave the table the spelled letters PHOENIX are remembered and restored to next ball
+# The bullseye_bonus is dynamic. Is initialized to 5,000 pts in bonus.yaml by ball_started event
+# bullseye_bonus grows beginning at 5,000 then as the word PHOENIX is spelled. (P=10,000, H=10,000, O=20,000,E=20,000,N=30,000,I=30,000,X=40,000)
+# Last Update Apr 6, 2021
+
+mode:
+  start_events: ball_started
+  priority: 110
+
+# Spell P-H-O-E-N-I-X top 5 lanes
+counters:
+  LANE_lanes:
+    count_events: LANE_lanes_complete
+    events_when_hit: LANE_lanes_done
+    starting_count: 1
+    direction: up
+    count_complete_value: 8
+    disable_on_complete: true
+# The value of spelled letters is carried to next ball
+    persist_state: True
+
+slide_player:
+  LANE_lanes_done{count==2}: 
+    slide_letter_p:
+      expire: 1s
+  LANE_lanes_done{count==3}: 
+    slide_letter_h:
+      expire: 1s
+  LANE_lanes_done{count==4}: 
+    slide_letter_o:
+      expire: 1s
+  LANE_lanes_done{count==5}: 
+    slide_extraball_lit:
+      expire: 3s
+  LANE_lanes_done{count==6}: 
+    slide_letter_n:
+      expire: 1s
+  LANE_lanes_done{count==7}: 
+    slide_letter_i:
+      expire: 1s
+  LANE_lanes_done{count==8}: 
+    slide_letter_x:
+      expire: 1s
+
+slides:
+  slide_extraball_lit:
+    - type: text
+      text: Extraball Lit
+      color: red
+    - type: rectangle
+      width: 128
+      height: 32
+  slide_letter_p:
+    - type: text
+      text: P
+      color: red
+    - type: rectangle
+      width: 128
+      height: 32
+  slide_letter_h:
+    - type: text
+      text: P  H
+      color: red
+    - type: rectangle
+      width: 128
+      height: 32
+  slide_letter_o:
+    - type: text
+      text: P  H  O
+      color: red
+    - type: rectangle
+      width: 128
+      height: 32
+  slide_letter_e:
+    - type: text
+      text: P  H  O  E
+      color: red
+    - type: rectangle
+      width: 128
+      height: 32
+  slide_letter_n:
+    - type: text
+      text: P  H  O  E  N
+      color: red
+    - type: rectangle
+      width: 128
+      height: 32
+  slide_letter_i:
+    - type: text
+      text: P  H  O  E  N  I
+      color: red
+    - type: rectangle
+      width: 128
+      height: 32
+  slide_letter_x:
+    - type: text
+      text: P  H  O  E  N  I  X
+      color: red
+    - type: rectangle
+      width: 128
+      height: 32
+
+shots:
+  top_lane1:
+    switch: s_lane1
+    show_tokens:
+        light: l_lane1
+  top_lane2:
+    switch: s_lane2, s_left_inlane
+    show_tokens:
+        light: l_lane2
+  top_lane3:
+    switch: s_lane3, s_rtarget, s_ltarget
+    show_tokens:
+        light: l_lane3
+  top_lane4:
+    switch: s_lane4, s_right_inlane
+    show_tokens:
+        light: l_lane4
+  top_lane5:
+    switch: s_lane5
+    show_tokens:
+        light: l_lane5
+
+shot_groups:
+  LANE_lanes:
+    shots: top_lane1, top_lane2, top_lane3, top_lane4, top_lane5
+    reset_events:
+      LANE_lanes_lit_complete: 1s
+
+variable_player:
+  extra_ball_score_one_awarded:
+    my_extraball_awarded:
+      int: 1
+      action: set
+# Give 10,00 point for Letter P and H
+  LANE_lanes_complete:
+    score: 10000
+    bullseye_bonus:
+      int: 10000
+      action: set
+# Give 20,00 point for Letter O and E
+  LANE_lanes_done{count==4}:
+    score: 20000
+    bullseye_bonus:
+      int: 20000
+      action: set
+    extraball_lamp_on:
+      int: 0
+      action: set
+# Turn on lamp Extra ball for Letter E
+  LANE_lanes_done{count==5}:
+    score: 20000
+    bullseye_bonus:
+      int: 20000
+      action: set
+    extraball_lamp_on:
+      int: 1
+      action: set
+# Give 30,00 point for Letter N and I
+  LANE_lanes_done{count==6}:
+    score: 30000
+    bullseye_bonus:
+      int: 30000
+      action: set
+    extraball_lamp_on:
+      int: 0
+      action: set
+  LANE_lanes_done{count==7}:
+    score: 30000
+    bullseye_bonus:
+      int: 30000
+      action: set
+    extraball_lamp_on:
+      int: 0
+      action: set
+# Give 40,00 point for Letter X
+  LANE_lanes_done{count==8}:
+    score: 40000
+    bullseye_bonus:
+      int: 40000
+      action: set
+    extraball_lamp_on:
+      int: 0
+      action: set
+
+show_player:
+  extra_ball_score_one_awarded:
+    playfield_light:
+      show_tokens:
+        lights: l_P, l_H, l_O, l_E,l_shotagain
+        color1: yellow
+
+  extra_ball_score_one_awarded.1: 
+    extraball_show:
+      loops: 2
+
+  LANE_lanes_done{count==2}:
+    playfield_light:
+      show_tokens:
+        lights: l_P
+        color1: yellow
+  LANE_lanes_done{count==3}:
+    playfield_light:
+      show_tokens:
+        lights: l_P, l_H
+        color1: yellow
+  LANE_lanes_done{count==4}:
+    playfield_light:
+      show_tokens:
+        lights: l_P, l_H, l_O
+        color1: yellow
+  LANE_lanes_done{count==5}:
+    playfield_light:
+      show_tokens:
+        lights: l_P, l_H, l_O, l_E, l_extraball
+        color1: yellow
+  LANE_lanes_done{count==6}:
+    playfield_light:
+      show_tokens:
+        lights: l_P, l_H, l_O, l_E, l_N
+        color1: yellow
+  LANE_lanes_done{count==7}:
+    playfield_light:
+      show_tokens:
+        lights: l_P, l_H, l_O, l_E, l_N, l_I
+        color1: yellow
+  LANE_lanes_done{count==8}:
+    playfield_light:
+      show_tokens:
+        lights: l_P, l_H, l_O, l_E, l_N, l_I, l_X
+        color1: yellow
+

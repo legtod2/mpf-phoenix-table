@@ -1,0 +1,32 @@
+loops: []
+score:
+- !!python/tuple
+  - AAA
+  - 807000
+- !!python/tuple
+  - AAA
+  - 754500
+- !!python/tuple
+  - AAA
+  - 639700
+- !!python/tuple
+  - FFF
+  - 561700
+- !!python/tuple
+  - DAD
+  - 457200
+- !!python/tuple
+  - AAA
+  - 453000
+- !!python/tuple
+  - AAA
+  - 452100
+- !!python/tuple
+  - AAA
+  - 434000
+- !!python/tuple
+  - AAA
+  - 428200
+- !!python/tuple
+  - AAA
+  - 351000

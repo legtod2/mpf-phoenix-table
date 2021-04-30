@@ -1,0 +1,134 @@
+#show_version=5
+- duration: 1
+  lights:
+    l_lane2: 0
+    l_lane1: ff
+- duration: 1
+  lights:
+    l_lane1: 0
+    l_lane2: ff
+- duration: 1
+  lights:
+    l_lane2: 0
+    l_lane3: ff
+- duration: 1
+  lights:
+    l_lane3: 0
+    l_lane4: ff
+- duration: 1
+  lights:
+    l_lane4: 0
+    l_lane5: ff
+- duration: 1
+  lights:
+    l_lane5: 0
+    l_P: ff
+- duration: 1
+  lights:
+    l_P: 0
+    l_H: ff
+- duration: 1
+  lights:
+    l_H: 0
+    l_O: ff
+- duration: 1
+  lights:
+    l_O: 0
+    l_E: ff
+- duration: 1
+  lights:
+    l_E: 0
+    l_N: ff
+- duration: 1
+  lights:
+    l_N: 0
+    l_I: ff
+- duration: 1
+  lights:
+    l_I: 0
+    l_X: ff
+- duration: 1
+  lights:
+    l_X: 0
+    l_bonus1: ff
+- duration: 1
+  lights:
+    l_bonus1: 0
+    l_bonus2: ff
+- duration: 1
+  lights:
+    l_bonus2: 0
+    l_bonus3: ff
+- duration: 1
+  lights:
+    l_bonus3: 0
+    l_bonus4: ff
+- duration: 1
+  lights:
+    l_bonus4: 0
+    l_bonus5: ff
+- duration: 1
+  lights:
+    l_bonus5: 0
+    l_bonus6: ff
+- duration: 1
+  lights:
+    l_bonus6: 0
+    l_bonus7: ff
+- duration: 1
+  lights:
+    l_bonus7: 0
+    l_bonus8: ff
+- duration: 1
+  lights:
+    l_bonus8: 0
+    l_bonus9: ff
+- duration: 1
+  lights:
+    l_bonus9: 0
+    l_bonus10: ff
+- duration: 1
+  lights:
+    l_bonus10: 0
+    l_bonus20: ff
+- duration: 1
+  lights:
+    l_bonus20: 0
+    l_extraball: ff
+- duration: 1
+  lights:
+    l_extraball: 0
+    l_spinner: ff
+- duration: 1
+  lights:
+    l_spinner: 0
+    l_lspecial: ff
+- duration: 1
+  lights:
+    l_lspecial: 0
+    l_shotagain: ff
+- duration: 1
+  lights:
+    l_shotagain: 0
+    l_rspecial: ff
+- duration: 1
+  lights:
+    l_rspecial: 0
+    l_multiplier2x: ff
+- duration: 1
+  lights:
+    l_multiplier2x: 0
+    l_multiplier3x: ff
+- duration: 1
+  lights:
+    l_multiplier3x: 0
+    l_multiplier4x: ff
+- duration: 1
+  lights:
+    l_multiplier4x: 0
+    l_multiplier5x: ff
+- duration: 1
+  lights:
+    l_multiplier5x: 0
+
+

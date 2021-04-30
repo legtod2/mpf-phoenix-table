@@ -1,0 +1,67 @@
+#config_version=5
+
+# Fix me to show 4 scores and match number inside dmd
+
+queue_relay_player:
+  match_no_match:
+    post: no_match
+    wait_for: slide_no_match_slide_removed
+    pass_args: true
+  match_has_match:
+    post: has_match
+    wait_for: slide_match_slide_removed
+    pass_args: true
+mode_settings:
+  non_match_number_step: 10
+slide_player:
+  no_match:
+    no_match_slide:
+      expire: 1s
+  has_match:
+    match_slide:
+      expire: 1s
+sound_player:
+  match_no_match:
+    no_match_sound:
+      action: play
+  match_has_match:
+    match_sound:
+      action: play
+
+# Fix so display of match fits on DMD
+slides:
+  match_slide:
+    - type: text
+      text: MATCH
+      font_size: 10
+      anchor_y: top
+#    - type: text
+#      text: "Player 1: (match_number0)"
+#    - type: text
+#      text: "Player 2: (match_number1)"
+#    - type: text
+#      text: "Player 3: (match_number2)"
+#    - type: text
+#      text: "Player 4: (match_number3)"
+    - type: text
+      text: "Match number: (winner_number)"
+      font_size: 10
+      anchor_y: bottom
+  no_match_slide:
+    - type: text
+      text: NO MATCH
+      font_size: 10
+      anchor_y: top
+#    - type: text
+#      text: "Player 1: (match_number0)"
+#    - type: text
+#      text: "Player 2: (match_number1)"
+#    - type: text
+#      text: "Player 3: (match_number2)"
+#    - type: text
+#      text: "Player 4: (match_number3)"
+    - type: text
+      text: "Match number: (winner_number)"
+      font_size: 10
+      anchor_y: bottom
+

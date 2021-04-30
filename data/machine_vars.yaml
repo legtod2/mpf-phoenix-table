@@ -1,0 +1,9 @@
+credit_units:
+  expire: 3600.0
+  value: 6.0
+free_play:
+  expire: null
+  value: false
+player1_score:
+  expire: null
+  value: 248100

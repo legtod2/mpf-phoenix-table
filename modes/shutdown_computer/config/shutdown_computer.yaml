@@ -1,0 +1,29 @@
+#config_version=5
+# Temporarily disabled pc shutdown hitting it by accident too many times
+
+mode:
+  start_events: mode_tilt_started
+  stop_events: shutdown_mode_cancel
+  priority: 400
+  game_mode: False
+  code: shutdown_computer.shutdown_computer
+
+event_player:
+  s_shutdown_active: 
+    - shutdown_pc
+  slide_shutdown_slide_removed:
+    - shutdown
+# Uncomment next 2 lines to get shutdown pc working again
+#  shutdown:
+#    - shutdown_host_computer
+
+slide_player:
+   shutdown_pc: 
+    shutdown_slide:
+     expire: 2s
+
+slides:
+  shutdown_slide:
+  - type: text
+    text: SHUTTING DOWN PC
+

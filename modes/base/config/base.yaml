@@ -1,0 +1,578 @@
+#config_version=5
+# Last Update Apr 4, 2021
+# Spinner value starts at 100 but advances to 1000 when bonus count >9 reset back to 100 when bonus count >19
+
+mode:
+  start_events: ball_starting
+  priority: 100
+
+event_player:
+  multiplayer_game: player_1_multiplayer_slide
+  player_1_ball_started: player_1_multiplayer_slide
+  player_score{value>=settings.replay_score and current_player.replay_level_1==0}:
+        - replay
+
+slide_player:
+  replay: 
+    slide_replay:
+      expire: 2s
+  single_player_ball_started: slide_1
+  player_1_multiplayer_slide: slide_2
+  player_2_ball_started: slide_3
+  player_3_ball_started: slide_4
+  player_4_ball_started: slide_5
+  s_left_inlane_active:
+    slide_raise_a:
+      expire: 1s
+  s_lane2_active:
+    slide_raise_a:
+      expire: 1s
+  s_right_inlane_active:
+    slide_raise_b:
+      expire: 1s
+  s_lane4_active:
+    slide_raise_b:
+      expire: 1s
+
+sound_player:
+  mode_base_started:
+    waiting_to_plunge_loop:
+      loops: -1
+  LANE_lanes_hit:
+    waiting_to_plunge_loop:
+      action: stop
+    base_background_music:
+#    spoons_beat:
+      loops: -1
+  s_outhole_active:
+    base_background_music:
+#    spoons_beat:
+      action: stop
+  s_lbdrop1_active: standup_hit_lit
+  s_lslingshot_active: standup_hit_lit
+  s_left_inlane_active: standup_hit_lit
+  s_right_inlane_active: standup_hit_lit
+  s_ljet_active: standup_hit_lit
+
+sequence_shots:
+  my_eb_sequence_shot:
+    event_sequence:
+      - player_extraball_lamp_on
+      - s_bullseye_active
+    cancel_events: cancel_eb
+    delay_event_list: 
+      delay1: 1s
+
+# Award extrabox when Letter E of word Phoenix lite and Bullseye hit
+extra_balls:
+  score_one:
+    enabled: true
+    award_events: my_eb_sequence_shot_hit
+
+show_player:
+  award_replay:
+    replay_show:
+      loops: 2
+  player_bonus{value==10}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus10, l_spinner
+        color1: yellow
+  player_bonus{value==20}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus20
+        color1: yellow
+  player_bonus{value==30}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus10, l_bonus20
+        color1: yellow
+  player_bonus{value==1}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1 
+        color1: yellow
+  player_bonus{value==11}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1, l_bonus10, l_spinner
+        color1: yellow
+  player_bonus{value==21}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1, l_bonus20
+        color1: yellow
+  player_bonus{value==31}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1, l_bonus10, l_bonus20
+        color1: yellow
+  player_bonus{value==2}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2
+        color1: yellow
+  player_bonus{value==12}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2, l_bonus10, l_spinner
+        color1: yellow
+  player_bonus{value==22}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2, l_bonus20
+        color1: yellow
+  player_bonus{value==32}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2, l_bonus10, l_bonus20
+        color1: yellow
+  player_bonus{value==3}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3
+        color1: yellow
+  player_bonus{value==13}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus10, l_spinner
+        color1: yellow
+  player_bonus{value==23}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus20
+        color1: yellow
+  player_bonus{value==33}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus10, l_bonus20
+        color1: yellow
+  player_bonus{value==4}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4
+        color1: yellow
+  player_bonus{value==14}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus10, l_spinner
+        color1: yellow
+  player_bonus{value==24}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus20
+        color1: yellow
+  player_bonus{value==34}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus10, l_bonus20
+        color1: yellow
+  player_bonus{value==5}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5
+        color1: yellow
+  player_bonus{value==15}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus10, l_spinner
+        color1: yellow
+  player_bonus{value==25}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus20
+        color1: yellow
+  player_bonus{value==35}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus10, l_bonus20
+        color1: yellow
+  player_bonus{value==6}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6
+        color1: yellow
+  player_bonus{value==16}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus10, l_spinner
+        color1: yellow
+  player_bonus{value==26}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus20
+        color1: yellow
+  player_bonus{value==36}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus10, l_bonus20
+        color1: yellow
+  player_bonus{value==7}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus7
+        color1: yellow
+  player_bonus{value==17}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus7, l_bonus10, l_spinner
+        color1: yellow
+  player_bonus{value==27}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus7, l_bonus20
+        color1: yellow
+  player_bonus{value==37}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus7, l_bonus10, l_bonus20
+        color1: yellow
+  player_bonus{value==8}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus7, l_bonus8
+        color1: yellow
+  player_bonus{value==18}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus7, l_bonus8, l_bonus10, l_spinner
+        color1: yellow
+  player_bonus{value==28}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus7, l_bonus8, l_bonus20
+        color1: yellow
+  player_bonus{value==38}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus7, l_bonus8, l_bonus10, l_bonus20
+        color1: yellow
+  player_bonus{value==9}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus7, l_bonus8, l_bonus9
+        color1: yellow
+  player_bonus{value==19}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus7, l_bonus8, l_bonus9, l_bonus10, l_spinner
+        color1: yellow
+  player_bonus{value==29}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus7, l_bonus8, l_bonus9, l_bonus20
+        color1: yellow
+  player_bonus{value==39}:
+    playfield_light:
+      show_tokens:
+        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus7, l_bonus8, l_bonus9, l_bonus10, l_bonus20
+        color1: yellow
+
+variable_player:
+# After replay awarded stop awarding again for every extra point.
+  replay:
+    replay_level_1:
+      int: 1
+      action: set
+  ball_started:
+# Reset Extra ball awarded to 0
+    my_extraball_awarded:
+      int: 0
+      action: set
+# Initialize spinner starting value to 100, multipler = 1 and turn off extraball lamp
+    spinner_value:
+      int: 100
+      action: set
+# See multiplier & my_multiplier in droptargets.yaml
+    multiplier:
+      int: 1
+      action: set
+    my_multiplier:
+      int: 1
+      action: set
+    extraball_lamp_on:
+      int: 0
+      action: set
+    spinner_lamp_on:
+      int: 0
+      action: set
+    bullseye_bonus:
+      int: 5000
+      action: set
+# Increase spinner value from 100 to 1,000 when we reach 10 bonus pts, reset back to 100 pts when bonus pts greater than 20 
+  player_bonus{value>=10}:
+    spinner_value:
+      int: 100 if current_player.bonus>=20 else 1000
+      action: set
+    spinner_lamp_on:
+      int: 0 if current_player.bonus>=20 else 1
+      action: set
+  s_right_inlane_active:
+    score: 1000 * current_player.multiplier
+    bonus: 1
+  s_right_outlane_active:
+    score: 1000 * current_player.multiplier
+    bonus: 1
+  s_left_inlane_active:
+    score: 1000 * current_player.multiplier
+    bonus: 1
+  s_left_outlane_active:
+    score: 1000 * current_player.multiplier
+    bonus: 1
+  s_spinner_active:
+    score: current_player.spinner_value * current_player.multiplier
+  s_bullseye_active:
+    score: current_player.bullseye_bonus * current_player.multiplier
+    bonus: 1    
+  s_lcdrop_active:
+    score: 10000 * current_player.multiplier
+    bonus: 1
+  s_rcdrop_active:
+    score: 10000 * current_player.multiplier
+    bonus: 1
+  s_lane1_active:
+    score: 1000 * current_player.multiplier
+    bonus: 1
+  s_lane2_active:
+    score: 1000 * current_player.multiplier
+    bonus: 1
+  s_lane3_active:
+    score: 1000 * current_player.multiplier
+    bonus: 1
+  s_lane4_active:
+    score: 1000 * current_player.multiplier
+    bonus: 1
+  s_lane5_active:
+    score: 1000 * current_player.multiplier
+    bonus: 1
+  s_ltarget_active:
+    score: 1000 * current_player.multiplier
+    bonus: 1
+  s_rtarget_active:
+    score: 1000 * current_player.multiplier
+    bonus: 1
+  s_ljet_active:
+    score: 10 * current_player.multiplier
+  s_rjet_active:
+    score: 10 * current_player.multiplier
+  s_cjet_active:
+    score: 10 * current_player.multiplier
+  s_lslingshot_active:
+    score: 10 * current_player.multiplier
+  s_rslingshot_active:
+    score: 10 * current_player.multiplier
+  s_rbdrop1_active:
+    score: 1000 * current_player.multiplier
+  s_rbdrop2_active:
+    score: 1000 * current_player.multiplier
+  s_rbdrop3_active:
+    score: 1000 * current_player.multiplier
+  s_rbdrop4_active:
+    score: 1000 * current_player.multiplier
+  s_lbdrop1_active:
+    score: 1000 * current_player.multiplier
+  s_lbdrop2_active:
+    score: 1000 * current_player.multiplier
+  s_lbdrop3_active:
+    score: 1000 * current_player.multiplier
+  s_lbdrop4_active:
+    score: 1000 * current_player.multiplier
+
+slides:
+  slide_replay:
+  - type: text
+    text: R E P L A Y
+  slide_raise_a:
+  - type: text
+    text: R A I S E - A
+  slide_raise_b:
+  - type: text
+    text: R A I S E - B
+  slide_1:
+  - type: text
+    text: (player1|score)
+    number_grouping: true
+    min_digits: 2
+    y: middle+2
+      #persist_slide: yes
+    style: tall_title
+  - type: text
+    text: BALL (player1|ball)    (machine|credits_string)
+    anchor_y: bottom
+    style: small
+    y: bottom+1
+
+  slide_2:
+  - type: text
+    text: (player1|score)
+      #font: medium
+    number_grouping: true
+    min_digits: 2
+    anchor_y: top
+    anchor_x: right
+    x: right-60
+    y: top-2
+  - type: text
+    text: (player2|score)
+    style: medium
+    anchor_y: top
+    anchor_x: right
+    number_grouping: true
+    min_digits: 2
+    x: right-2
+    y: top-2
+  - type: text
+    text: (player3|score)
+    style: medium
+    anchor_y: bottom
+    anchor_x: right
+    y: bottom+10
+    x: right-60
+    number_grouping: true
+    min_digits: 2
+  - type: text
+    text: (player4|score)
+    style: medium
+    anchor_y: bottom
+    anchor_x: right
+    y: bottom+10
+    x: right-2
+    number_grouping: true
+    min_digits: 2
+  - type: text
+    text: BALL (player1|ball)    (machine|credits_string)
+    anchor_y: bottom
+    style: small
+    y: bottom+1
+
+  slide_3:
+  - type: text
+    text: (player1|score)
+    style: medium
+    number_grouping: true
+    min_digits: 2
+    anchor_y: top
+    anchor_x: right
+    x: right-60
+    y: top-2
+  - type: text
+    text: (player2|score)
+#      font: medium
+    anchor_y: top
+    anchor_x: right
+    number_grouping: true
+    min_digits: 2
+    x: right-2
+    y: top-2
+  - type: text
+    text: (player3|score)
+    style: medium
+    anchor_y: bottom
+    anchor_x: right
+    y: bottom+10
+    x: right-60
+    number_grouping: true
+    min_digits: 2
+  - type: text
+    text: (player4|score)
+    style: medium
+    anchor_y: bottom
+    anchor_x: right
+    y: bottom+10
+    x: right-2
+    number_grouping: true
+    min_digits: 2
+  - type: text
+    text: BALL (player2|ball)    (machine|credits_string)
+    anchor_y: bottom
+    style: small
+    y: bottom+1
+
+  slide_4:
+  - type: text
+    text: (player1|score)
+    style: medium
+    number_grouping: true
+    min_digits: 2
+    anchor_y: top
+    anchor_x: right
+    x: right-60
+    y: top-2
+  - type: text
+    text: (player2|score)
+    style: medium
+    anchor_y: top
+    anchor_x: right
+    number_grouping: true
+    min_digits: 2
+    x: right-2
+    y: top-2
+  - type: text
+    text: (player3|score)
+#      font: medium
+    anchor_y: bottom
+    anchor_x: right
+    y: bottom+10
+    x: right-60
+    number_grouping: true
+    min_digits: 2
+  - type: text
+    text: (player4|score)
+    style: medium
+    anchor_y: bottom
+    anchor_x: right
+    y: bottom+10
+    x: right-2
+    number_grouping: true
+    min_digits: 2
+  - type: text
+    text: BALL (player3|ball)    (machine|credits_string)
+    anchor_y: bottom
+    style: small
+    y: bottom+1
+
+  slide_5:
+  - type: text
+    text: (player1|score)
+    style: medium
+    number_grouping: true
+    min_digits: 2
+    anchor_y: top
+    anchor_x: right
+    x: right-60
+    y: top-2
+  - type: text
+    text: (player2|score)
+    style: medium
+    anchor_y: top
+    anchor_x: right
+    number_grouping: true
+    min_digits: 2
+    x: right-2
+    y: top-2
+  - type: text
+    text: (player3|score)
+    style: medium
+    anchor_y: bottom
+    anchor_x: right
+    y: bottom+10
+    x: right-60
+    number_grouping: true
+    min_digits: 2
+  - type: text
+    text: (player4|score)
+#      font: medium
+    anchor_y: bottom
+    anchor_x: right
+    y: bottom+10
+    x: right-2
+    number_grouping: true
+    min_digits: 2
+  - type: text
+    text: BALL (player4|ball)    (machine|credits_string)
+    anchor_y: bottom
+    style: small
+    y: bottom+1
+
+

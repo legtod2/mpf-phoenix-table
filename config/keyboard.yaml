@@ -1,0 +1,96 @@
+#config_version=5
+keyboard:
+# Service Mode switches
+#  b:
+#    switch: s_shutdown
+  right:
+    switch: s_service_enter
+  left:
+    switch: s_service_esc
+  up:
+    switch: s_service_up
+  down:
+    switch: s_service_down
+  s:
+    switch: s_start
+  o:
+    switch: s_outhole
+    toggle: true
+  p:
+    switch: s_ball_launch
+  8:
+    switch: s_shooter_lane
+    toggle: true
+  l:
+    switch: s_lslingshot
+  r:
+    switch: s_rslingshot
+  y:
+    switch: s_ljet
+  d:
+    switch: s_rjet
+  j:
+    switch: s_cjet
+  f:
+    event: toggle_credit_play
+  z:
+    switch: s_flipper_left
+  /:
+    switch: s_flipper_right
+  x:
+    switch: s_left_inlane
+  v:
+    switch: s_left_outlane
+  n:
+    switch: s_right_inlane
+  m:
+    switch: s_right_outlane
+  shift+1:
+    switch: s_lane1
+  shift+2:
+    switch: s_lane2
+  shift+3:
+    switch: s_lane3
+  shift+4:
+    switch: s_lane4
+  shift+5:
+    switch: s_lane5
+  shift+6:
+    switch: s_lbdrop1
+  shift+7:
+    switch: s_lbdrop2
+  shift+8:
+    switch: s_lbdrop3
+  shift+9:
+    switch: s_lbdrop4
+  h:
+    event: start_high_score
+  t:
+    switch: s_plumb_bob
+  shift+t:
+    switch: s_slam_tilt
+  c:
+    switch: s_left_coin
+  ctrl+1:
+    switch: s_rbdrop1
+  ctrl+2:
+    switch: s_rbdrop2
+  ctrl+3:
+    switch: s_rbdrop3
+  ctrl+4:
+    switch: s_rbdrop4
+  ctrl+5:
+    switch: s_lcdrop
+  ctrl+6:
+    switch: s_rcdrop
+  ctrl+7:
+    switch: s_ltarget
+  ctrl+8:
+    switch: s_rtarget
+  ctrl+9:
+    switch: s_bullseye
+  ctrl+0:
+    switch: s_spinner
+  enter:
+    switch: s_coin_door_closed
+    toggle: true

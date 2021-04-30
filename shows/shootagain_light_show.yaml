@@ -1,0 +1,16 @@
+#show_version=5
+  - duration: 500ms
+    lights:
+      l_shotagain: yellow
+  - duration: 500ms
+    lights:
+      l_shotagain: 0
+  - duration: 500ms
+    lights:
+      l_shotagain: yellow
+  - duration: 500ms
+    lights:
+      l_shotagain: 0
+  - duration: 500ms
+    lights:
+      l_shotagain: yellow

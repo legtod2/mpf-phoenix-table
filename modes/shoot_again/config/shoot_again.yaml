@@ -1,0 +1,44 @@
+#config_version=5
+##! mode: shoot_again.yaml
+# Flash shoot again playfield lamp and display dmd shoot again
+
+mode:
+  start_events: ball_will_end
+  priority: 200
+
+queue_relay_player:
+  ball_ending{current_player.my_extraball_awarded==1}:
+    post: start_ball_ending_show1
+    wait_for: mode_ball_ending_show1_ended
+  ball_ending.1{current_player.my_extraball_awarded==1}:
+    post: start_ball_ending_show2
+    wait_for: mode_ball_ending_show2_ended
+
+
+show_player:
+  start_ball_ending_show1:
+    shootagain_dmd_show:
+      loops: 1
+      speed: 1
+      events_when_stopped: mode_ball_ending_show1_ended
+  start_ball_ending_show2: 
+    shootagain_light_show:
+      loops: 5
+      speed: 6 
+      events_when_stopped: mode_ball_ending_show2_ended
+
+  mode_ball_ending_show1_ended:
+    shootagain_dmd_show:
+      action: stop
+  mode_ball_ending_show2_ended:
+    shootagain_light_show:
+      action: stop
+
+shows:
+  ball_starting_show:
+    - duration: 2s
+  ball_ending_show:
+    - duration: 5s
+
+
+
