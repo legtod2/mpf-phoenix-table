@@ -27,3 +27,5 @@ On the bottom right side you will see the service buttton)
 7) To see service menu items click on the service menu button (Bottom right side)
 8) Use the service menu buttons to navigate on bottom right
 
+This is the first time I have ever uploaded to github so I made a couple of mistakes.
+After you unzip the contents, you will need to create directory called tests and move test_simple_game.py into that folder
