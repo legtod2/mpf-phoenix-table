@@ -6,6 +6,9 @@ Version 0.5
 Very raw Mission pinball framework of Williams Phoenix. This version will use a DMD rather than traditional backglass.
 This version is waiting for the arrival of the cobrapin board, so the config file is missing the mappings to the board.
 
+Run full game unit test (This will cycle thru a full game extra ball, replay, initials for high score)
+python3 -m unittest discover
+
 It will work as a virtual demo
 
 mpf both -X
