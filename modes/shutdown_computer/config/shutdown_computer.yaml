@@ -14,8 +14,8 @@ event_player:
   slide_shutdown_slide_removed:
     - shutdown
 # Uncomment next 2 lines to get shutdown pc working again
-#  shutdown:
-#    - shutdown_host_computer
+  shutdown:
+    - shutdown_host_computer
 
 slide_player:
    shutdown_pc: 
