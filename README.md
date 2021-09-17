@@ -1,6 +1,9 @@
 # mpf-phoenix-table
 Mission Pinball table of Williams Phoenix 
 
+The following code consist primarily of yaml files for a Cobrapin board and OPP with Mission Pinball Framework Version .55
+Two small python programs (Bonus.py to count down bonus, shutdown.py)
+
 Version 1.0
 
 To test.. 
