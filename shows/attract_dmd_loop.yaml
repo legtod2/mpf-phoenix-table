@@ -129,30 +129,6 @@
 
 - time: '+2'
   slides:
-    attract_dmd_loop_slide_8:
-      transition:
-        type: move_in
-        duration: 1s
-        direction: bottom
-
-      widgets:
-      - type: text
-        text: MASTER LOOPER
-        anchor_y: top
-        style: medium
-        y: top
-      - type: text
-        text: (machine|loops1_name)
-        style: tall_title
-      - type: text
-        text: (machine|loops1_value) LOOPS
-        anchor_y: bottom
-        style: medium
-        number_grouping: true
-        y: bottom
-
-- time: '+2'
-  slides:
     attract_dmd_loop_slide_9:
     - type: text
       text: (machine|player1_score)
