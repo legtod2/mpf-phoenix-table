@@ -1,79 +1,93 @@
-events: {}
-player: {}
+events:
+  game_ended: 1
+  game_started: 1
+player:
+  score:
+    average: 155685.0
+    top:
+    - 566020
+    - 164450
+    - 74940
+    - 63020
+    - 47650
+    - 18030
+    total: 6
 shots:
-  left_center_drop: 109
-  left_drop1: 194
-  left_drop2: 184
-  left_drop3: 183
-  left_drop4: 200
-  right_center_drop: 91
-  right_drop1: 58
-  right_drop2: 57
-  right_drop3: 56
-  right_drop4: 61
-  top_lane1: 936
-  top_lane2: 641
-  top_lane3: 608
-  top_lane4: 664
-  top_lane5: 523
+  left_center_drop: 8
+  left_drop1: 4
+  left_drop2: 5
+  left_drop3: 13
+  left_drop4: 13
+  right_center_drop: 8
+  right_drop1: 10
+  right_drop2: 11
+  right_drop3: 6
+  right_drop4: 4
+  top_lane1: 7
+  top_lane2: 13
+  top_lane3: 22
+  top_lane4: 20
+  top_lane5: 16
 switches:
   s_ball_tilt: 0
-  s_bottom_left_standup: 0
-  s_bottom_right_standup: 0
-  s_bullseye: 198
+  s_bullseye: 27
   s_center_coin: 0
-  s_cjet: 16
+  s_cjet: 13
+  s_cjetcntr: 14
+  s_coin_btn: 12
   s_door_open: 0
-  s_down: 0
-  s_enter: 3
-  s_esc: 18
-  s_flipper_left: 77
-  s_flipper_left_eos: 0
-  s_flipper_right: 59
-  s_flipper_right_eos: 0
+  s_flipper_left: 205
+  s_flipper_right: 108
   s_highscore_reset: 0
-  s_lane1: 942
-  s_lane2: 550
-  s_lane3: 516
-  s_lane4: 511
-  s_lane5: 524
-  s_lbdrop1: 195
-  s_lbdrop2: 184
-  s_lbdrop3: 183
-  s_lbdrop4: 200
+  s_hs_reset: 8
+  s_lane1: 7
+  s_lane2: 9
+  s_lane3: 11
+  s_lane4: 11
+  s_lane5: 16
+  s_lbdrop1: 4
+  s_lbdrop2: 5
+  s_lbdrop3: 13
+  s_lbdrop4: 13
   s_lbdropall: 0
-  s_lbstandup: 0
-  s_lcdrop: 186
-  s_left_coin: 5
-  s_left_inlane: 161
-  s_left_outlane: 11
-  s_ljet: 19
-  s_lslingshot: 29
-  s_lstandup: 0
-  s_ltarget: 61
-  s_outhole: 334
+  s_lbstandup: 3
+  s_lcdrop: 8
+  s_left_coin: 0
+  s_left_inlane: 4
+  s_left_outlane: 2
+  s_ljet: 9
+  s_ljetcntr: 19
+  s_lslingshot: 3
+  s_lslingshotcntr: 6
+  s_ltarget: 2
+  s_outhole: 22
+  s_pcreset: 0
   s_playfieldtilt: 0
-  s_plumb_bob: 3
-  s_rbdrop1: 72
-  s_rbdrop2: 72
-  s_rbdrop3: 66
-  s_rbdrop4: 73
+  s_plumb_bob: 1
+  s_rbdrop1: 10
+  s_rbdrop2: 11
+  s_rbdrop3: 6
+  s_rbdrop4: 4
   s_rbdropall: 0
-  s_rbstandup: 0
-  s_rcdrop: 151
+  s_rbstandup: 5
+  s_rcdrop: 8
   s_right_coin: 0
-  s_right_inlane: 297
-  s_right_outlane: 27
-  s_rjet: 18
-  s_rslingshot: 17
-  s_rtarget: 31
+  s_right_inlane: 9
+  s_right_outlane: 4
+  s_rjet: 0
+  s_rjetcntr: 0
+  s_rslingshot: 11
+  s_rslingshotcntr: 0
+  s_rtarget: 9
   s_service_down: 0
   s_service_enter: 0
   s_service_esc: 0
   s_service_up: 0
-  s_shutdown: 53
+  s_shutdown: 2
   s_slam_tilt: 0
-  s_spinner: 126
-  s_start: 98
-  s_trstandup: 0
-  s_up: 0
+  s_spinner: 154
+  s_start: 25
+  s_wall1: 4
+  s_wall2: 0
+  s_wall3: 4
+  s_wall4: 2
