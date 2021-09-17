@@ -23,14 +23,173 @@
 # python3 -m unittest discover
 #
 
-dmds:
+
+hardware:
+  platform: opp
+  driverboards: gen2
+
+opp:
+  ports: /dev/ttyACM0, /dev/ttyACM1
+
+machine:
+  balls_installed: 5
+  min_balls: 1
+
+virtual_platform_start_active_switches: s_outhole
+
+mpf-mc:
+  fps: 60
+
+window:
+  width: 800 
+  height: 600
+  title: Mission Pinball Framework - PHOENIX
+  resizable: true
+  fullscreen: false
+  borderless: false
+  exit_on_escape: true
+  source_display: window
+
+displays:
+  window:
+    width: 800
+    height: 600
   dmd:
-    shades: 16
-    fps: 24
+    width: 128
+    height: 32
+    default: true
+
+light_player:
+  s_lane1_active:
+    l_lane1: ff
+  s_lane2_active:
+    l_lane2: ff
+  s_lane3_active:
+    l_lane3: ff
+  s_lane4_active:
+    l_lane4: ff
+  s_lane5_active:
+    l_lane5: ff
+
+drop_targets:
+  left_drop1:
+    switch: s_lbdrop1
+    debug: True
+  left_drop2:
+    switch: s_lbdrop2
+    debug: True
+  left_drop3:
+    switch: s_lbdrop3
+    debug: True
+  left_drop4:
+    switch: s_lbdrop4
+    debug: True
+  right_drop1:
+    switch: s_rbdrop1
+    debug: True
+  right_drop2:
+    switch: s_rbdrop2
+    debug: True
+  right_drop3:
+    switch: s_rbdrop3
+    debug: True
+  right_drop4:
+    switch: s_rbdrop4
+    debug: True
+  left_center_drop:
+    switch: s_lcdrop
+    reset_coil: c_lcdropreset
+    reset_events: drop_target_left_center_drop_down
+  right_center_drop:
+    switch: s_rcdrop
+    reset_coil: c_rcdropreset
+    reset_events: drop_target_right_center_drop_down
+
+drop_target_banks:
+  left_bank:
+    drop_targets: left_drop1, left_drop2, left_drop3, left_drop4
+    reset_coils: c_lbdropreset1, c_lbdropreset2
+    reset_events:
+      ball_started
+#      player_turn_will_start
+    reset_on_complete: 1s
+  right_bank:
+    drop_targets: right_drop1, right_drop2, right_drop3, right_drop4
+    reset_coils: c_rbdropreset1, c_rbdropreset2
+    reset_events:
+      ball_started
+#      player_turn_will_start    
+    reset_on_complete: 1s
+
+
+playfields:
+  playfield:
+    default_source_device: trough
+    tags: default
+
+ball_devices:
+  trough:
+    eject_coil: c_outhole
+    ball_switches: s_outhole
+    debug: true
+    tags: trough, home, drain
+
+# Using EOS Switch so no hold_coil required
+flippers:
+  left_flipper:
+    main_coil: c_flipper_left_main
+    activation_switch: s_flipper_left
+    enable_events: ball_started #machine_reset_phase_3 #For testing
+    disable_events: ball_will_end, service_mode_entered
+  right_flipper:
+    main_coil: c_flipper_right_main
+    activation_switch: s_flipper_right
+    enable_events: ball_started #machine_reset_phase_3 
+    disable_events: ball_will_end, service_mode_entered
+
+slides:
+  window_slide_1:
+  - type: display
+    width: 512
+    height: 128
+    anchor_y: bottom
+    y: 5
+    effects:
+      - type: dmd
+        dot_color: ff5500
+        background_color: 220000
+  - type: rectangle
+    width: 514
+    height: 130
+    color: 444444
+    anchor_y: bottom
+    y: 5
+  - type: image
+    image: phoenix1
+    anchor_y: top
+    anchor_x: left
+    y: top
+    x: 0
+
+  waiting_for_connection:
+  - type: text
+    text: WAITING FOR MPF CONNECTION
+
+  asset_status:
+  - type: text
+    text: "LOADING ASSETS: (percent)%"
+
+slide_player:
+  init_done:
+    window_slide_1:
+      target: window
+  loading_assets: asset_status
 
 config:
-- hardware.yaml
 - keyboard.yaml
+- lights.yaml
+- coils.yaml
+- switches.yaml
 
 smart_virtual:
   file_log: full
@@ -38,6 +197,10 @@ smart_virtual:
 mpf:
   default_pulse_ms: 20
 
+# Give cobrapin capacitors time to charge after firing flippers
+psus:
+  default:
+    release_wait_ms: 50
 
 modes:
 - base
@@ -127,7 +290,7 @@ credits:
   free_play: false
   price_tier_template: "{{credits}} CREDITS ${{price}}"
 # Give free credit by pressing s_service_esc switch
-  service_credits_switch: s_service_esc
+  service_credits_switch: s_coin_btn
   switches:
     - switch: s_left_coin
       type: dollars
@@ -213,7 +376,7 @@ sound_system:
       preload: true
       simultaneous_sounds: 7
     music:
-      volume: 1
+      volume: 0.7
       simultaneous_sounds: 1
   buffer: 2048  # previous value was 512
   frequency: 44100
@@ -221,6 +384,15 @@ sound_system:
   master_volume: 1
   enabled: true
 
+sound_pools:
+  bulls_eye_pool:
+    type: random
+    track: sfx
+    sounds:
+      - ThatsGottaHurt
+      - ShitHappens
+      - YourFucked
+      
 assets:
   sounds:
     default:

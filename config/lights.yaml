@@ -1,0 +1,225 @@
+#config_version=5
+
+lights:
+  l_lane1:
+    number: 1-0-0
+    subtype: led
+    label:
+    tags: white
+  l_lane2:
+    number: 1-0-1
+    subtype: led
+    label:
+    tags: white
+  l_lane3:
+    number: 1-0-2
+    subtype: led
+    label:
+    tags: white
+  l_lane4:
+    number: 1-0-3
+    subtype: led
+    label:
+    tags: white
+  l_lane5:
+    number: 1-0-4
+    subtype: led
+    label:
+    tags: white
+  l_P:
+    number: 1-0-5
+    subtype: led
+    label:
+    tags: white
+  l_H:
+    number: 1-0-6
+    subtype: led
+    label:
+    tags: white
+  l_O:
+    number: 1-0-7
+    subtype: led
+    label:
+    tags: white
+  l_E:
+    number: 1-0-8
+    subtype: led
+    label:
+    tags: white
+  l_N:
+    number: 1-0-9
+    subtype: led
+    label:
+    tags: white
+  l_I:
+    number: 1-0-10
+    subtype: led
+    label:
+    tags: white
+  l_X:
+    number: 1-0-11
+    subtype: led
+    label:
+    tags: white
+  l_bonus1:
+    number: 1-0-12
+    subtype: led
+    label:
+    tags: white
+  l_bonus2:
+    number: 1-0-13
+    subtype: led
+    label:
+    tags: white
+  l_bonus3:
+    number: 1-0-14
+    label:
+    tags: white
+  l_bonus4:
+    number: 1-0-15
+    subtype: led
+    label:
+    tags: white
+  l_bonus5:
+    number: 1-0-16
+    label:
+    tags: white
+  l_bonus6:
+    number: 1-0-17
+    label:
+    tags: white
+  l_bonus7:
+    number: 1-0-18
+    label:
+    tags: white
+  l_bonus8:
+    number: 1-0-19
+    label:
+    tags: white
+  l_bonus9:
+    number: 1-0-20
+    label:
+    tags: white
+  l_bonus10:
+    number: 1-0-22
+    label:
+    tags: white
+  l_bonus20:
+    number: 1-0-21
+    label:
+    tags: white
+  l_multiplier2x:
+    number: 1-0-23
+    label:
+    tags: white
+  l_multiplier3x:
+    number: 1-0-24
+    label:
+    tags: white
+  l_multiplier4x:
+    number: 1-0-25
+    label:
+    tags: white
+  l_multiplier5x:
+    number: 1-0-26
+    label:
+    tags: white
+  l_spinner:
+    number: 1-0-27
+    label:
+    tags: white
+  l_extraball:
+    number: 1-0-28
+    label:
+    tags: white
+  l_shotagain:
+    number: 1-0-29
+    label:
+    tags: white
+  l_lspecial:
+    number: 1-0-30
+    label:
+    tags: white
+  l_rspecial:
+    number: 1-0-31
+    label:
+    tags: white
+
+  l_spare32:
+    number: 1-0-32
+    label:
+    tags: white
+  l_spare33:
+    number: 1-0-33
+    label:
+    tags: white
+  l_spare34:
+    number: 1-0-34
+    label:
+    tags: white
+  l_spare35:
+    number: 1-0-35
+    label:
+    tags: white
+  l_spare36:
+    number: 1-0-36
+    label:
+    tags: white
+  l_spare37:
+    number: 1-0-37
+    label:
+    tags: white
+  l_spare38:
+    number: 1-0-38
+    label:
+    tags: white
+  l_spare39:
+    number: 1-0-39
+    label:
+    tags: white
+  l_spare40:
+    number: 1-0-40
+    label:
+    tags: white
+  l_spare41:
+    number: 1-0-41
+    label:
+    tags: white
+  l_spare42:
+    number: 1-0-42
+    label:
+    tags: white
+  l_spare43:
+    number: 1-0-43
+    label:
+    tags: white
+  l_spare44:
+    number: 1-0-44
+    label:
+    tags: white
+  l_spare45:
+    number: 1-0-45
+    label:
+    tags: white
+  l_spare46:
+    number: 1-0-46
+    label:
+    tags: white
+  l_spare47:
+    number: 1-0-47
+    label:
+    tags: white
+  l_spare48:
+    number: 1-0-48
+    label:
+    tags: white
+  l_spare49:
+    number: 1-0-49
+    label:
+    tags: white
+  l_spare50:
+    number: 1-0-50
+    label:
+    tags: white
+
+
