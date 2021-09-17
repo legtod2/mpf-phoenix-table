@@ -5,6 +5,8 @@ The following code consist primarily of yaml files for a Cobrapin board and OPP 
 Two small python programs (Bonus.py to count down bonus, shutdown.py)
 
 Version 1.0
+Author: legtod2
+Last Update: Sept 17, 2021
 
 To test.. 
 Open a terminal session(1)
