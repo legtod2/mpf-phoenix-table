@@ -1,15 +1,12 @@
 # mpf-phoenix-table
 Mission Pinball table of Williams Phoenix 
 
-Version 0.5
+Version 1.0
 
-Very raw Mission pinball framework of Williams Phoenix. This version will use a DMD rather than traditional backglass.
-This version is waiting for the arrival of the cobrapin board, so the config file is missing the mappings to the board.
-
-It will work as a virtual demo
-
+To test.. 
+Open a terminal session(1)
 mpf both -X
-
+Open a 2nd terminal seesion(2)
 mpf monitor
 
 On the playfield monitor you will see the virtual Williams table. On the bottom row you will see the Start button, coin button, shutdown (Bottom left)
