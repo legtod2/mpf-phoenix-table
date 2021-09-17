@@ -8,9 +8,14 @@ mode:
 
 event_player:
   multiplayer_game: player_1_multiplayer_slide
+  s_hs_reset_active: high_score_reset
   player_1_ball_started: player_1_multiplayer_slide
   player_score{value>=settings.replay_score and current_player.replay_level_1==0}:
-        - replay
+    - replay
+  s_lbdstandup_active:
+    - pulse_lb_reset1
+  s_rbdstandup_active:
+    - pulse_rb_reset1
 
 slide_player:
   replay: 
@@ -35,24 +40,45 @@ slide_player:
       expire: 1s
 
 sound_player:
-  mode_base_started:
-    waiting_to_plunge_loop:
-      loops: -1
-  LANE_lanes_hit:
-    waiting_to_plunge_loop:
-      action: stop
-    base_background_music:
+#  mode_base_started:
+#    waiting_to_plunge_loop:
+#      loops: -1
+#  LANE_lanes_hit:
+#    waiting_to_plunge_loop:
+#      action: stop
+#    base_background_music:
 #    spoons_beat:
-      loops: -1
-  s_outhole_active:
-    base_background_music:
+#      loops: -1
+#  s_outhole_active:
+#    base_background_music:
 #    spoons_beat:
-      action: stop
-  s_lbdrop1_active: standup_hit_lit
-  s_lslingshot_active: standup_hit_lit
-  s_left_inlane_active: standup_hit_lit
-  s_right_inlane_active: standup_hit_lit
-  s_ljet_active: standup_hit_lit
+#      action: stop
+  play_1000_pts: 1000_pts
+  s_bullseye_active: bulls_eye_pool
+  s_ltarget_active: GoPostal
+  s_rtarget_active: come_on
+  s_spinner_active: 10_pts
+  s_wall1_active: 10_pts
+  s_wall2_active: 10_pts
+  s_wall3_active: 10_pts
+  s_wall4_active: 10_pts
+  s_lane1_active: 1000_pts
+  s_lane2_active: 1000_pts
+  s_lane3_active: 1000_pts
+  s_lane4_active: 1000_pts
+  s_lane5_active: 1000_pts
+  s_lbdrop1_active: 1000_pts
+  s_lslingshot_active: 10_pts
+  s_left_inlane_active: 1000_pts
+  s_right_inlane_active: 1000_pts
+  s_left_outlane_active: doh
+  s_right_outlane_active: doh
+  s_ljet_active: 100_pts
+  s_rjet_active: 100_pts
+  s_cjet_active: 100_pts
+  s_right_coin_active: payback_time
+  s_coin_btn_active: payback_time
+  s_start_active: YourFucked
 
 sequence_shots:
   my_eb_sequence_shot:
@@ -111,162 +137,162 @@ show_player:
   player_bonus{value==2}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2
+        lights: l_bonus2
         color1: yellow
   player_bonus{value==12}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2, l_bonus10, l_spinner
+        lights: l_bonus2, l_bonus10, l_spinner
         color1: yellow
   player_bonus{value==22}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2, l_bonus20
+        lights: l_bonus2, l_bonus20
         color1: yellow
   player_bonus{value==32}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2, l_bonus10, l_bonus20
+        lights: l_bonus2, l_bonus10, l_bonus20
         color1: yellow
   player_bonus{value==3}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3
+        lights: l_bonus3
         color1: yellow
   player_bonus{value==13}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus10, l_spinner
+        lights: l_bonus3, l_bonus10, l_spinner
         color1: yellow
   player_bonus{value==23}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus20
+        lights: l_bonus3, l_bonus20
         color1: yellow
   player_bonus{value==33}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus10, l_bonus20
+        lights: l_bonus3, l_bonus10, l_bonus20
         color1: yellow
   player_bonus{value==4}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4
+        lights: l_bonus4
         color1: yellow
   player_bonus{value==14}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus10, l_spinner
+        lights: l_bonus4, l_bonus10, l_spinner
         color1: yellow
   player_bonus{value==24}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus20
+        lights: l_bonus4, l_bonus20
         color1: yellow
   player_bonus{value==34}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus10, l_bonus20
+        lights: l_bonus4, l_bonus10, l_bonus20
         color1: yellow
   player_bonus{value==5}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5
+        lights: l_bonus5
         color1: yellow
   player_bonus{value==15}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus10, l_spinner
+        lights: l_bonus5, l_bonus10, l_spinner
         color1: yellow
   player_bonus{value==25}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus20
+        lights: l_bonus5, l_bonus20
         color1: yellow
   player_bonus{value==35}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus10, l_bonus20
+        lights: l_bonus5, l_bonus10, l_bonus20
         color1: yellow
   player_bonus{value==6}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6
+        lights: l_bonus6
         color1: yellow
   player_bonus{value==16}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus10, l_spinner
+        lights: l_bonus10, l_spinner
         color1: yellow
   player_bonus{value==26}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus20
+        lights: l_bonus6, l_bonus20
         color1: yellow
   player_bonus{value==36}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus10, l_bonus20
+        lights: l_bonus6, l_bonus10, l_bonus20
         color1: yellow
   player_bonus{value==7}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus7
+        lights: l_bonus7
         color1: yellow
   player_bonus{value==17}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus7, l_bonus10, l_spinner
+        lights: l_bonus7, l_bonus10, l_spinner
         color1: yellow
   player_bonus{value==27}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus7, l_bonus20
+        lights: l_bonus7, l_bonus20
         color1: yellow
   player_bonus{value==37}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus7, l_bonus10, l_bonus20
+        lights: l_bonus7, l_bonus10, l_bonus20
         color1: yellow
   player_bonus{value==8}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus7, l_bonus8
+        lights: l_bonus8
         color1: yellow
   player_bonus{value==18}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus7, l_bonus8, l_bonus10, l_spinner
+        lights: l_bonus8, l_bonus10, l_spinner
         color1: yellow
   player_bonus{value==28}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus7, l_bonus8, l_bonus20
+        lights: l_bonus8, l_bonus20
         color1: yellow
   player_bonus{value==38}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus7, l_bonus8, l_bonus10, l_bonus20
+        lights: l_bonus8, l_bonus10, l_bonus20
         color1: yellow
   player_bonus{value==9}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus7, l_bonus8, l_bonus9
+        lights: l_bonus9
         color1: yellow
   player_bonus{value==19}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus7, l_bonus8, l_bonus9, l_bonus10, l_spinner
+        lights: l_bonus9, l_bonus10, l_spinner
         color1: yellow
   player_bonus{value==29}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus7, l_bonus8, l_bonus9, l_bonus20
+        lights: l_bonus9, l_bonus20
         color1: yellow
   player_bonus{value==39}:
     playfield_light:
       show_tokens:
-        lights: l_bonus1,l_bonus2,l_bonus3, l_bonus4, l_bonus5, l_bonus6, l_bonus7, l_bonus8, l_bonus9, l_bonus10, l_bonus20
+        lights: l_bonus9, l_bonus10, l_bonus20
         color1: yellow
 
 variable_player:
@@ -300,6 +326,16 @@ variable_player:
     bullseye_bonus:
       int: 5000
       action: set
+          
+  s_wall1_active:
+    score: 10 * current_player.multiplier
+  s_wall2_active:
+    score: 10 * current_player.multiplier
+  s_wall3_active:
+    score: 10 * current_player.multiplier
+  s_wall4_active:
+    score: 10 * current_player.multiplier
+      
 # Increase spinner value from 100 to 1,000 when we reach 10 bonus pts, reset back to 100 pts when bonus pts greater than 20 
   player_bonus{value>=10}:
     spinner_value:
@@ -310,48 +346,48 @@ variable_player:
       action: set
   s_right_inlane_active:
     score: 1000 * current_player.multiplier
-    bonus: 1
+    bonus: 1 if current_player.bonus<=38 else 0
   s_right_outlane_active:
     score: 1000 * current_player.multiplier
-    bonus: 1
+    bonus: 1 if current_player.bonus<=38 else 0
   s_left_inlane_active:
     score: 1000 * current_player.multiplier
-    bonus: 1
+    bonus: 1 if current_player.bonus<=38 else 0
   s_left_outlane_active:
     score: 1000 * current_player.multiplier
-    bonus: 1
+    bonus: 1 if current_player.bonus<=38 else 0
   s_spinner_active:
     score: current_player.spinner_value * current_player.multiplier
   s_bullseye_active:
     score: current_player.bullseye_bonus * current_player.multiplier
-    bonus: 1    
+    bonus: 1 if current_player.bonus<=38 else 0    
   s_lcdrop_active:
     score: 10000 * current_player.multiplier
-    bonus: 1
+    bonus: 1 if current_player.bonus<=38 else 0
   s_rcdrop_active:
     score: 10000 * current_player.multiplier
-    bonus: 1
+    bonus: 1 if current_player.bonus<=38 else 0
   s_lane1_active:
     score: 1000 * current_player.multiplier
-    bonus: 1
+    bonus: 1 if current_player.bonus<=38 else 0
   s_lane2_active:
     score: 1000 * current_player.multiplier
-    bonus: 1
+    bonus: 1 if current_player.bonus<=38 else 0
   s_lane3_active:
     score: 1000 * current_player.multiplier
-    bonus: 1
+    bonus: 1 if current_player.bonus<=38 else 0
   s_lane4_active:
     score: 1000 * current_player.multiplier
-    bonus: 1
+    bonus: 1 if current_player.bonus<=38 else 0
   s_lane5_active:
     score: 1000 * current_player.multiplier
-    bonus: 1
+    bonus: 1 if current_player.bonus<=38 else 0
   s_ltarget_active:
     score: 1000 * current_player.multiplier
-    bonus: 1
+    bonus: 1 if current_player.bonus<=38 else 0
   s_rtarget_active:
     score: 1000 * current_player.multiplier
-    bonus: 1
+    bonus: 1 if current_player.bonus<=38 else 0
   s_ljet_active:
     score: 10 * current_player.multiplier
   s_rjet_active:
