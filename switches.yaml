@@ -1,0 +1,253 @@
+#config_version=5
+# Restore switches s_outhole, s_start back to previous values
+switches:
+# Williams System 4 has dual wound coil using EOS switch 
+  s_flipper_right:
+    number: 1-0-1 
+    tags: player, high_score_right, right_flipper
+    label:
+  s_flipper_left:
+    number: 1-0-2
+    tags: player, high_score_left, left_flipper
+    label:
+# slingshots
+  s_lslingshot:
+    number: 1-0-3
+    label:
+    tags: slingshot
+  s_rslingshot:
+    number: 1-0-8
+    label:
+    tags: slingshot
+# bumpers
+  s_ljet:
+    number: 1-0-9
+    label:
+    tags: jet
+  s_rjet:
+    number: 1-0-10
+    label:
+    tags: jet
+  s_cjet:
+    number: 1-0-11
+    label:
+    tags: jet
+
+
+# Service Switches
+  s_door_open:
+    number: 0-0-16
+    tags: service_door_open, power_off
+  s_service_enter:
+    number: 0-0-17
+    tags: service_enter
+  s_service_esc:
+    number: 0-0-18
+    tags: service_esc
+  s_service_up:
+    number: 0-0-19
+    tags: service_up
+  s_service_down:
+    number: 0-0-24
+    tags: service_down
+  s_shutdown:
+    number: 0-0-25
+  s_hs_reset:
+    number: 0-0-26
+    
+# Debounce the coin button better    
+  s_coin_btn:
+    number: 0-0-27
+    ignore_window_ms: 500
+# Matrix
+  s_plumb_bob:
+    number: 1-0-32
+    label:
+    tags: tilt_warning
+  s_ball_tilt:
+    number: 1-0-33
+    label:
+    tags: tilt_warning
+  s_start:
+    number: 1-0-34
+    label:
+    tags: start, player, high_score_select
+  s_right_coin:
+    number: 1-0-35
+    tags:
+    label:
+  s_center_coin:
+    number: 1-0-36
+    tags:
+    label:
+  s_left_coin:
+    number: 1-0-37
+    tags:
+    label:
+  s_slam_tilt:
+    number: 1-0-38
+    tags: 
+  s_highscore_reset:
+    number: 1-0-39
+    tags:
+    label:
+  s_lane1:
+    number: 1-0-40
+    label:
+  s_lane2:
+    number: 1-0-41
+    label:
+  s_lane3:
+    number: 1-0-42
+    label:
+  s_lane4:
+    number: 1-0-43
+    label:
+  s_lane5:
+    number: 1-0-44
+    label:
+# Right and left top targets auto enables top middle lane3 (Sw14 and Sw19)
+  s_rtarget:
+    number: 1-0-45
+    tags:
+    label:
+  s_spinner:
+    number: 1-0-46
+    label:
+# bumpers
+  s_rjetcntr:
+    number: 1-0-47
+    label:
+# tags: jet
+  s_cjetcntr:
+    number: 1-0-48
+    label:
+# tags: jet
+  s_ljetcntr:
+    number: 1-0-49
+    label:
+# tags: jet
+# Right and left top targets auto enables top lane3
+  s_ltarget:
+    number: 1-0-50
+    tags:
+    label:
+#  s_lstandup:
+  s_wall1:
+    number: 1-0-51
+    tags:
+    label:
+  s_bullseye:
+    number: 1-0-52
+    tags:
+    label:
+  s_lbstandup:
+    number: 1-0-53
+    tags:
+    label:
+  s_playfieldtilt:
+    number: 1-0-54
+    tags:
+    label:
+  s_rbstandup:
+    number: 1-0-55
+    tags:
+    label:
+# Leftbank drop targets (1-4)
+  s_lbdrop1:
+    number: 1-0-56
+    tags:
+    label:
+  s_lbdrop2:
+    number: 1-0-57
+    tags:
+    label:
+  s_lbdrop3:
+    number: 1-0-58
+    tags:
+    label:
+  s_lbdrop4:
+    number: 1-0-59
+    tags:
+    label:
+  s_lbdropall:
+    number: 1-0-60
+    tags:
+    label:
+  s_lslingshotcntr:
+    number: 1-0-61
+    label:
+# tags: slingshot
+  s_left_inlane:
+    number: 1-0-62
+    label:
+  s_left_outlane:
+    number: 1-0-63
+    label:
+    tags: playfield_active, outlane
+# Left and Right Center drop targets
+  s_lcdrop:
+    number: 1-0-64
+    label:
+    tags: 
+# switch 34 is not used leave gap 1-0-65
+  s_rcdrop:
+    number: 1-0-66
+    label:
+    tags: 
+# switch 36 is not used leave gap 1-0-67
+  s_outhole:
+    number: 1-0-68
+    label:
+    tags: 
+# Lane 4 Conditional standup Right center drop target
+#  s_trstandup:
+  s_wall2:
+    number: 1-0-69
+    label:
+    tags: 
+#  s_bottom_left_standup:
+  s_wall3:
+    number: 1-0-70
+    label:
+    tags: 
+#  s_bottom_right_standup:
+  s_wall4:
+    number: 1-0-71
+    label:
+    tags: 
+# Rightbank drop targets (1-4)
+  s_rbdrop1:
+    number: 1-0-72
+    tags:
+    label:
+  s_rbdrop2:
+    number: 1-0-73
+    tags:
+    label:
+  s_rbdrop3:
+    number: 1-0-74
+    tags:
+    label:
+  s_rbdrop4:
+    number: 1-0-75
+    tags:
+    label:
+  s_rbdropall:
+    number: 1-0-76
+    tags:
+    label:
+  s_rslingshotcntr:
+    number: 1-0-77
+    label:
+# tags: slingshot
+  s_right_inlane:
+    number: 1-0-78
+    label:
+  s_right_outlane:
+    number: 1-0-79
+    label:
+    tags: playfield_active, outlane
+
+
+
