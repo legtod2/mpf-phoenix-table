@@ -103,197 +103,197 @@ show_player:
     playfield_light:
       show_tokens:
         lights: l_bonus10, l_spinner
-        color1: yellow
+        color1: white
   player_bonus{value==20}:
     playfield_light:
       show_tokens:
         lights: l_bonus20
-        color1: yellow
+        color1: white
   player_bonus{value==30}:
     playfield_light:
       show_tokens:
         lights: l_bonus10, l_bonus20
-        color1: yellow
+        color1: white
   player_bonus{value==1}:
     playfield_light:
       show_tokens:
         lights: l_bonus1 
-        color1: yellow
+        color1: white
   player_bonus{value==11}:
     playfield_light:
       show_tokens:
         lights: l_bonus1, l_bonus10, l_spinner
-        color1: yellow
+        color1: white
   player_bonus{value==21}:
     playfield_light:
       show_tokens:
         lights: l_bonus1, l_bonus20
-        color1: yellow
+        color1: white
   player_bonus{value==31}:
     playfield_light:
       show_tokens:
         lights: l_bonus1, l_bonus10, l_bonus20
-        color1: yellow
+        color1: white
   player_bonus{value==2}:
     playfield_light:
       show_tokens:
         lights: l_bonus2
-        color1: yellow
+        color1: white
   player_bonus{value==12}:
     playfield_light:
       show_tokens:
         lights: l_bonus2, l_bonus10, l_spinner
-        color1: yellow
+        color1: white
   player_bonus{value==22}:
     playfield_light:
       show_tokens:
         lights: l_bonus2, l_bonus20
-        color1: yellow
+        color1: white
   player_bonus{value==32}:
     playfield_light:
       show_tokens:
         lights: l_bonus2, l_bonus10, l_bonus20
-        color1: yellow
+        color1: white
   player_bonus{value==3}:
     playfield_light:
       show_tokens:
         lights: l_bonus3
-        color1: yellow
+        color1: white
   player_bonus{value==13}:
     playfield_light:
       show_tokens:
         lights: l_bonus3, l_bonus10, l_spinner
-        color1: yellow
+        color1: white
   player_bonus{value==23}:
     playfield_light:
       show_tokens:
         lights: l_bonus3, l_bonus20
-        color1: yellow
+        color1: white
   player_bonus{value==33}:
     playfield_light:
       show_tokens:
         lights: l_bonus3, l_bonus10, l_bonus20
-        color1: yellow
+        color1: white
   player_bonus{value==4}:
     playfield_light:
       show_tokens:
         lights: l_bonus4
-        color1: yellow
+        color1: white
   player_bonus{value==14}:
     playfield_light:
       show_tokens:
         lights: l_bonus4, l_bonus10, l_spinner
-        color1: yellow
+        color1: white
   player_bonus{value==24}:
     playfield_light:
       show_tokens:
         lights: l_bonus4, l_bonus20
-        color1: yellow
+        color1: white
   player_bonus{value==34}:
     playfield_light:
       show_tokens:
         lights: l_bonus4, l_bonus10, l_bonus20
-        color1: yellow
+        color1: white
   player_bonus{value==5}:
     playfield_light:
       show_tokens:
         lights: l_bonus5
-        color1: yellow
+        color1: white
   player_bonus{value==15}:
     playfield_light:
       show_tokens:
         lights: l_bonus5, l_bonus10, l_spinner
-        color1: yellow
+        color1: white
   player_bonus{value==25}:
     playfield_light:
       show_tokens:
         lights: l_bonus5, l_bonus20
-        color1: yellow
+        color1: white
   player_bonus{value==35}:
     playfield_light:
       show_tokens:
         lights: l_bonus5, l_bonus10, l_bonus20
-        color1: yellow
+        color1: white
   player_bonus{value==6}:
     playfield_light:
       show_tokens:
         lights: l_bonus6
-        color1: yellow
+        color1: white
   player_bonus{value==16}:
     playfield_light:
       show_tokens:
         lights: l_bonus10, l_spinner
-        color1: yellow
+        color1: white
   player_bonus{value==26}:
     playfield_light:
       show_tokens:
         lights: l_bonus6, l_bonus20
-        color1: yellow
+        color1: white
   player_bonus{value==36}:
     playfield_light:
       show_tokens:
         lights: l_bonus6, l_bonus10, l_bonus20
-        color1: yellow
+        color1: white
   player_bonus{value==7}:
     playfield_light:
       show_tokens:
         lights: l_bonus7
-        color1: yellow
+        color1: white
   player_bonus{value==17}:
     playfield_light:
       show_tokens:
         lights: l_bonus7, l_bonus10, l_spinner
-        color1: yellow
+        color1: white
   player_bonus{value==27}:
     playfield_light:
       show_tokens:
         lights: l_bonus7, l_bonus20
-        color1: yellow
+        color1: white
   player_bonus{value==37}:
     playfield_light:
       show_tokens:
         lights: l_bonus7, l_bonus10, l_bonus20
-        color1: yellow
+        color1: white
   player_bonus{value==8}:
     playfield_light:
       show_tokens:
         lights: l_bonus8
-        color1: yellow
+        color1: white
   player_bonus{value==18}:
     playfield_light:
       show_tokens:
         lights: l_bonus8, l_bonus10, l_spinner
-        color1: yellow
+        color1: white
   player_bonus{value==28}:
     playfield_light:
       show_tokens:
         lights: l_bonus8, l_bonus20
-        color1: yellow
+        color1: white
   player_bonus{value==38}:
     playfield_light:
       show_tokens:
         lights: l_bonus8, l_bonus10, l_bonus20
-        color1: yellow
+        color1: white
   player_bonus{value==9}:
     playfield_light:
       show_tokens:
         lights: l_bonus9
-        color1: yellow
+        color1: white
   player_bonus{value==19}:
     playfield_light:
       show_tokens:
         lights: l_bonus9, l_bonus10, l_spinner
-        color1: yellow
+        color1: white
   player_bonus{value==29}:
     playfield_light:
       show_tokens:
         lights: l_bonus9, l_bonus20
-        color1: yellow
+        color1: white
   player_bonus{value==39}:
     playfield_light:
       show_tokens:
         lights: l_bonus9, l_bonus10, l_bonus20
-        color1: yellow
+        color1: white
 
 variable_player:
 # After replay awarded stop awarding again for every extra point.
