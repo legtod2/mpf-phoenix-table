@@ -3,12 +3,6 @@
 # Aug 31, Can't enable autofire flippers with EOS config
 # Bank C (1-0-n)
 autofire_coils:
-#  left_flipper:
-#    coil: c_flipper_left_main
-#    switch: s_flipper_left
-#  right_flipper:
-#    coil: c_flipper_right_main
-#    switch: s_flipper_right
   center_jet:
     coil: c_cjet
     switch: s_cjet
@@ -113,11 +107,13 @@ coils:
 # ---------------------------------------
   c_flipper_left_main:
     number: 1-0-0
-    default_pulse_ms: 7
+    default_pulse_ms: 5
+    allow_enable: true
     default_hold_power: 1.0
   c_flipper_right_main:
     number: 1-0-7
-    default_pulse_ms: 7
+    default_pulse_ms: 5
+    allow_enable: true
     default_hold_power: 1.0
 
 # Bumpers
@@ -140,14 +136,18 @@ coils:
 # Left slingshot 
   c_lslingshot:
     number: 1-0-3
-    label:
-    tags:
     default_pulse_ms: 7
+#    default_recycle: true
+#    platform_settings:
+#      recycle_factor: 2
+
 # Right slingshot (Working)
   c_rslingshot:
     number: 1-0-2
-    label:
-    tags:
     default_pulse_ms: 7
+#    default_recycle: true
+#    platform_settings:
+#      recycle_factor: 2
+    
 
 

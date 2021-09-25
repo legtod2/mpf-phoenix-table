@@ -1,7 +1,7 @@
 #config_version=5
 #
 # 1978 Williams Phoenix Pinball 
-# Mission Pinball Framework Version .55 Sept 17, 2021
+# Mission Pinball Framework Version .54 April 2021
 # Author: Todd Legere
 # Instructions:
 # 1) Spell PHOENIX by completing Top LANES 1 thru 5
@@ -29,6 +29,8 @@ hardware:
   driverboards: gen2
 
 opp:
+# Turn debug off after slingshot debugged
+#  debug: true
   ports: /dev/ttyACM0, /dev/ttyACM1
 
 machine:
@@ -43,7 +45,7 @@ mpf-mc:
 window:
   width: 800 
   height: 600
-  title: Mission Pinball Framework - PHOENIX
+#  title: Mission Pinball Framework - PHOENIX
   resizable: true
   fullscreen: false
   borderless: false
@@ -71,6 +73,16 @@ light_player:
   s_lane5_active:
     l_lane5: ff
 
+sound_player:
+  s_start_active: 1000_pts
+  s_door_open_active: 1000_pts
+  s_service_enter_active: 1000_pts
+  s_service_up_active: 1000_pts
+  s_service_down_active: 1000_pts
+  s_shutdown_active: game_over
+  s_coin_btn_active: coin_inserted
+  s_right_coin_active: coin_inserted
+  
 drop_targets:
   left_drop1:
     switch: s_lbdrop1
@@ -108,6 +120,7 @@ drop_targets:
 drop_target_banks:
   left_bank:
     drop_targets: left_drop1, left_drop2, left_drop3, left_drop4
+# Reminder there are 2 banks of coils , c_lbdropreset2
     reset_coils: c_lbdropreset1, c_lbdropreset2
     reset_events:
       ball_started
@@ -115,6 +128,7 @@ drop_target_banks:
     reset_on_complete: 1s
   right_bank:
     drop_targets: right_drop1, right_drop2, right_drop3, right_drop4
+# Reminder there are 2 banks of coils , c_rbdropreset2
     reset_coils: c_rbdropreset1, c_rbdropreset2
     reset_events:
       ball_started
@@ -138,11 +152,13 @@ ball_devices:
 flippers:
   left_flipper:
     main_coil: c_flipper_left_main
+#    hold_coil: c_flipper_left_hold
     activation_switch: s_flipper_left
     enable_events: ball_started #machine_reset_phase_3 #For testing
     disable_events: ball_will_end, service_mode_entered
   right_flipper:
     main_coil: c_flipper_right_main
+#    hold_coil: c_flipper_right_hold
     activation_switch: s_flipper_right
     enable_events: ball_started #machine_reset_phase_3 
     disable_events: ball_will_end, service_mode_entered
@@ -294,15 +310,17 @@ credits:
   switches:
     - switch: s_left_coin
       type: dollars
-      value: .25
+      value: 1
     - switch: s_right_coin
       type: dollars
       value: 1
+    - switch: s_coin_btn
+      type: dollars
+      value: 1
   pricing_tiers:
-    - price: .50
+    - price: 1
       credits: 1
-    - price: 2
-      credits: 5
+
   events:
     - event: add_credit
       type: award

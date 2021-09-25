@@ -54,8 +54,11 @@ switches:
     number: 0-0-25
   s_hs_reset:
     number: 0-0-26
+    
+# Debounce the coin button better    
   s_coin_btn:
     number: 0-0-27
+    ignore_window_ms: 500
 # Matrix
   s_plumb_bob:
     number: 1-0-32
