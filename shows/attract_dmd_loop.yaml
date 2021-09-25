@@ -44,7 +44,7 @@
 
 - time: '+15'
   slides:
-    attract_dmd_loop_slide_3:
+    attract_dmd_loop_slide_3a:
       transition:
         type: move_out
         duration: 1s
@@ -52,9 +52,21 @@
 
       widgets:
       - type: image
-        image: Williams
+        image: mpf
 
-- time: '+2'
+- time: '+15'
+  slides:
+    attract_dmd_loop_slide_3b:
+      transition:
+        type: move_out
+        duration: 1s
+        direction: top
+
+      widgets:
+      - type: image
+        image: opp
+
+- time: '+15'
   slides:
     attract_dmd_loop_slide_4:
     - type: text
