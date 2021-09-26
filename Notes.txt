@@ -1,0 +1,371 @@
+Sept 26, 2021
+
+My collection of operational notes.
+
+To access the Service menu, open coin door then press & hold button labeled "Door Open" then press button labeled "Enter".
+Below is the Service menu navigation. 
+
+Service Menu:
+	Diagnostic Menu:
+		- Switch Menu
+		- Coil Menu
+		- Light Menu
+	Audits Menu:
+		- Earnings Audits
+		- Switch Audits
+		- Shot Audits
+		- Event Audits
+		- Player Audits
+	Adjustments Menu:
+		- Standard Adjustments
+			- Settings --> Replay Score default 230,000 pts
+			- Settings --> Balls Per Game default 3 
+			- Settings --> Brightness default 100
+			- Settings --> Max Credits default 20
+			- Settings --> Match Percentage default 10%
+			- Settings --> # Of Tilt warnings default 3
+			- Settings --> Tilt settling (wait) time default 5
+			- Settings --> Tilt sensitivity default Normal
+			- Settings --> Flipper power default Normal
+		- Feature Adjustments
+			- Empty No sub menu entries
+		- Game Adjustments
+			- Empty No submenu entries
+		- Coin Adjustments
+			- Free Play (No coins required)
+			- Credit Play (Coins Required)
+	Utilities Menu:
+		- Reset Menu
+			- Reset coin Audits
+			- Reset Game Audits
+			- Reset High Scores (File ~/phoenix/data/high_scores.yaml reset)
+			- Reset Credits - Set number of credits to Zero
+			- Reset to Factory settings
+
+How to Set REPLAY score
+
+1) Open Coin door
+2) Press and hold Button "Door Open" this will be automatic in version 2.0
+3) Press Button "Enter" (once) Sub menu appears
+4) Press Button "+" (and repeat pressing until) "Adjustments Menu" appears
+5) Press Button "Enter" 
+6) Press Button "+" (and repeat pressing until) "Standard Adjustments" appears
+7) Press Button "Enter"
+8) Press Button "+" (and repeat pressing until) "Settings-->Replay Score" appears
+9) Press Button "Enter"
+10)Press Button "+" you toggle "230000","330000","500000" DEFAULT "230000"
+11) Press Button "Enter" or Press Button "escape" to decline reseting.
+12)Press Button "escape" (and repeat pressing until) exit from service menu
+
+How to Set Tilt sensitivity
+
+1) Open Coin door
+2) Press and hold Button "Door Open" this will be automatic in version 2.0
+3) Press Button "Enter" (once) Sub menu appears
+4) Press Button "+" (and repeat pressing until) "Adjustments Menu" appears
+5) Press Button "Enter" 
+6) Press Button "+" (and repeat pressing until) "Standard Adjustments" appears
+7) Press Button "Enter"
+8) Press Button "+" (and repeat pressing until) "Settings-->Tilt Sensitivity" appears
+9) Press Button "Enter"
+10)Press Button "+" you toggle "1","2","3","10","No WARNINGS" DEFAULT "3"
+11)Press Button "Enter" or Press Button "escape" to decline reseting.
+10)Press Button "escape" (and repeat pressing until) exit from service menu
+
+Sept 25, 2021
+
+How to Reset High Scores Back to default Values:
+
+1) Open Coin door
+2) Press and hold Button "Door Open" this will be automatic in version 2.0
+3) Press Button "Enter" (once) Sub menu appears
+4) Press Button "+" (and repeat pressing until) "Utilities Menu" appears
+5) Press Button "Enter" 
+6) Press Button "+" (and repeat pressing until) "Reset High Scores" appears
+7) Press Button "Enter"
+8) Press Button "+" you toggle "yes" "no" to confirm reset
+9) Press Button "Enter" or Press Button "escape" to decline reseting high score.
+10)Press Button "escape" (and repeat pressing until) exit from service menu
+
+How to Reset Coins/Credits to Zero:
+
+1) Open Coin door
+2) Press and hold Button "Door Open" this will be automatic in version 2.0
+3) Press Button "Enter" (once) Sub menu appears
+4) Press Button "+" (and repeat pressing until) "Utilities Menu" appears
+5) Press Button "Enter" 
+6) Press Button "+" (and repeat pressing until) "Reset Credits" appears
+7) Press Button "Enter"
+8) Press Button "+" you toggle "yes" "no" to confirm reset
+9) Press Button "Enter" or Press Button "escape" to decline reseting.
+10)Press Button "escape" (and repeat pressing until) exit from service menu
+ 
+How to Shutdown machine:
+
+1) Open Coin door
+2) Press service button shutdown 
+3) Game over sound occurs & DMD message "SHUTING DOWN PC" appears
+4) A graceful shutdown takes 1 min to kill all processes then powers off
+
+If machine does not powerdown after 3min...
+1) Press service button "PC Power" 
+2) Ubuntu Gnome (XWindows) dialog box appears for shutdown
+3) Choose menu item using wireless keyboard
+
+If machine not responsive at all...
+1) Use power toggle switch located bottom of cabinet (beneath right corner flipper side)
+
+How to Power ON machine:
+1) Blue power cord plugged into wall socket
+2) Interior cabinet smart power bar powered on & Windows PC plugged into master plug
+3) Turn on power toggle switch located bottom of cabinet (beneath right corner flipper side)
+4) Green led light from speakers located behind beezle turns on & PC boots Ubuntu Operating system
+5) Monitor displays 
+6) Press RED button on front of cabinet to add coins then press WHITE button to start a game.
+
+May 28, 2021
+
+To flash the stm32   
+Download the latest code here ...
+https://sourceforge.net/p/open-pinball-project/code/HEAD/tree/trunk/Stm32Workbench/Gen3Images/
+and save the hex files here
+cd ~/Downloads/open-pinball-project-code-r295-trunk/Stm32Workbench/Gen3Images
+
+Make sure in virtual box you enable the usb port to ST-Link or dongle device name when its plugged in.
+
+Connect the ST-Link dongle to stm32
+ plug in 4 wires to bottom row dongle and 4 pins of stm32 ( 3.3V, swclk,grd,swdio)
+ place boot0 jumper to 1
+ cd ~/Downloads/open-pinball-project-code-r295-trunk/Stm32Workbench/Gen3Images
+ plug dongle to usb 
+ Make sure Virtualbox Devices--> USB checkmark (STMIcroelectrons STM32 link)
+ lsusb you see (STMIcroelectrons STM32 link)
+ sudo /usr/bin/st-flash --format ihex write OppStm32.2.2.0.0.hex # Sub for correct file name OppStm32.2.2.0.0.hex
+# ==You should see this =========================================================================
+st-flash 1.7.0-27-gf885091
+2021-05-28T12:16:57 INFO common.c: F1xx Medium-density: 20 KiB SRAM, 64 KiB flash in at least 1 KiB pages.
+2021-05-28T12:16:57 INFO common.c: Attempting to write 24432 (0x5f70) bytes to stm32 address: 134217728 (0x8000000)
+2021-05-28T12:16:57 INFO common.c: Flash page at addr: 0x08000000 erased
+2021-05-28T12:16:57 INFO common.c: Flash page at addr: 0x08000400 erased
+2021-05-28T12:16:57 INFO common.c: Flash page at addr: 0x08000800 erased
+2021-05-28T12:16:57 INFO common.c: Flash page at addr: 0x08000c00 erased
+2021-05-28T12:16:57 INFO common.c: Flash page at addr: 0x08001000 erased
+2021-05-28T12:16:57 INFO common.c: Flash page at addr: 0x08001400 erased
+2021-05-28T12:16:58 INFO common.c: Flash page at addr: 0x08001800 erased
+2021-05-28T12:16:58 INFO common.c: Flash page at addr: 0x08001c00 erased
+2021-05-28T12:16:58 INFO common.c: Flash page at addr: 0x08002000 erased
+2021-05-28T12:16:58 INFO common.c: Flash page at addr: 0x08002400 erased
+2021-05-28T12:16:58 INFO common.c: Flash page at addr: 0x08002800 erased
+2021-05-28T12:16:58 INFO common.c: Flash page at addr: 0x08002c00 erased
+2021-05-28T12:16:58 INFO common.c: Flash page at addr: 0x08003000 erased
+2021-05-28T12:16:58 INFO common.c: Flash page at addr: 0x08003400 erased
+2021-05-28T12:16:58 INFO common.c: Flash page at addr: 0x08003800 erased
+2021-05-28T12:16:58 INFO common.c: Flash page at addr: 0x08003c00 erased
+2021-05-28T12:16:58 INFO common.c: Flash page at addr: 0x08004000 erased
+2021-05-28T12:16:58 INFO common.c: Flash page at addr: 0x08004400 erased
+2021-05-28T12:16:58 INFO common.c: Flash page at addr: 0x08004800 erased
+2021-05-28T12:16:58 INFO common.c: Flash page at addr: 0x08004c00 erased
+2021-05-28T12:16:58 INFO common.c: Flash page at addr: 0x08005000 erased
+2021-05-28T12:16:58 INFO common.c: Flash page at addr: 0x08005400 erased
+2021-05-28T12:16:58 INFO common.c: Flash page at addr: 0x08005800 erased
+2021-05-28T12:16:58 INFO common.c: Flash page at addr: 0x08005c00 erased
+2021-05-28T12:16:58 INFO common.c: Finished erasing 24 pages of 1024 (0x400) bytes
+2021-05-28T12:16:58 INFO common.c: Starting Flash write for VL/F0/F3/F1_XL
+2021-05-28T12:16:58 INFO flash_loader.c: Successfully loaded flash loader in sram
+2021-05-28T12:16:58 INFO flash_loader.c: Clear DFSR
+ 24/ 24 pages written
+2021-05-28T12:16:59 INFO common.c: Starting verification of write complete
+2021-05-28T12:17:00 INFO common.c: Flash written and verified! jolly good!
+# ==========================================================================================
+ unplug dongle
+ reset boot0 to 0
+
+Program stm32
+ plug in usb mini cable
+ Make sure Virtualbox Devices--> USB checkmark (STMIcroelectrons STM32)
+ cd ~/mpf/mpf-examples-dev/phoenix/Gen2Test
+ Verify ttyACM0 exists
+ ls -al /dev/ttyACM0
+ sudo python Gen2Test.py -port=/dev/ttyACM0
+# == Outputlooks like this ========================================
+Sending inventory cmd
+Found 1 Gen2 brds.
+Addr = ['0x20']
+Card 0, firmware version = 2.2.0.0
+0x20 WingCfg = 0x08010101
+0x20 W[0]:NEO_SOL_WING, W[1]:SOL_WING, W[2]:SOL_WING, W[3]:SOL_WING
+# ==================================================================
+
+Go here to download the cobrapin stm32 configs
+https://github.com/cobra18t/CobraPin/tree/main/OPP%20Config 
+Download CobraPinBoard0.py 
+Download CobraPin_board1_Standard.py
+
+There are two processor boards on the CobraPin with the board numbers labeled on silkscreen under the boards. Board 0 is the upper board and Board 1 is the lower board. Each board requires a different config and should not be swapped without re-configuring OPP.
+
+Putting a Board 1 config in a Board 0 slot could result in blown FETs, coils, or fuses. A Board 0 config should also not go in the Board 1 slot. Proceed with caution!
+Board 0
+
+Regular: Neopixels on J11 that glow dimly blue at power-on. The purpose of glowing dimly is to verify at a glance that all pixels are operating properly even before MPF takes control of the lights.
+
+NoGlow: Neopixels on J11 will stay off at power up.
+Board 1
+
+There are 3 variants for Board 1. By default, all of them have neopixels on J12 that glow dimly blue at power-on. The purpose of glowing dimly is to verify at a glance that all pixels are operating properly even before MPF takes control of the lights. Each variant also has a NoGlow option.
+
+Standard: Includes the standard active-low matrix for 64 matrix switches and 22 direct inputs.
+
+Direct: No matrix for a total of 38 direct inputs on the CobraPin.
+
+HighMatrix: Includes an active-high matrix for 64 matrix switches and 22 direct inputs. 
+Loading the Config
+
+The OPP Config Process consists of establishing comms, erasing the existing config, loading/saving the new config, and verifying the new config.
+
+Since CobraPin relies on processor board serial numbers to address the boards, use Gen2Test to load the serial number. The serial should be the board number (0,1,2, etc.).
+
+As an example, here is the command sequence to load the regular config into Board 0. You may have a different port name.
+
+#Remember Gen2Test.py is using python2.7 code
+cd ~/mpf/mpf-examples-dev/phoenix/Gen2Test
+sudo python Gen2Test.py -port=/dev/ttyACM0
+sudo python Gen2Test.py -port=/dev/ttyACM0 -eraseCfg
+sudo python Gen2Test.py -port=/dev/ttyACM0 -saveCfg -loadCfg=CobraPin_Board0.py
+Sending inventory cmd
+Found 1 Gen2 brds.
+Addr = ['0x20']
+Card 0, firmware version = 2.1.0.4
+0x20 WingCfg = 0x08010101
+0x20 W[0]:NEO_SOL_WING, W[1]:SOL_WING, W[2]:SOL_WING, W[3]:SOL_WING
+loadFileName = CobraPin_Board0_NoGlow
+Sending wing cfg.
+Sending input cfg.
+Sending solenoid cfg.
+Sending color table cfg.
+Sending save cfg command.
+Done save cfg command.
+
+sudo python Gen2Test.py -port=/dev/ttyACM0
+sudo python Gen2Test.py -port=/dev/ttyACM0 -ser=0
+Sending inventory cmd
+Found 1 Gen2 brds.
+Addr = ['0x20']
+Card 0, firmware version = 2.1.0.4
+0x20 WingCfg = 0x08010101
+0x20 W[0]:NEO_SOL_WING, W[1]:SOL_WING, W[2]:SOL_WING, W[3]:SOL_WING
+Programming serial number
+serNum = 0
+Card 0, has serial num 0x00000000 programmed, so it must be preserved
+sudo python Gen2Test.py -port=/dev/ttyACM1
+sudo python Gen2Test.py -port=/dev/ttyACM1 -eraseCfg
+sudo python Gen2Test.py -port=/dev/ttyACM1 -saveCfg -loadCfg=CobraPin_Board1_Standard.py
+Sending inventory cmd
+Found 1 Gen2 brds.
+Addr = ['0x20']
+Card 0, firmware version = 2.1.0.4
+0x20 WingCfg = 0x08010a05
+0x20 W[0]:NEO_SOL_WING, W[1]:SOL_WING, W[2]:SW_MATRIX_OUT_LOW_WING, W[3]:SW_MATRIX_IN_WING
+loadFileName = Cobrapin_Board1_Standard_NoGlow
+Sending wing cfg.
+Sending input cfg.
+Sending solenoid cfg.
+Sending color table cfg.
+Sending save cfg command.
+Done save cfg command.
+sudo python Gen2Test.py -port=/dev/ttyACM1
+sudo python Gen2Test.py -port=/dev/ttyACM1 -ser=1
+Sending inventory cmd
+Found 1 Gen2 brds.
+Addr = ['0x20']
+Card 0, firmware version = 2.1.0.4
+0x20 WingCfg = 0x08010a05
+0x20 W[0]:NEO_SOL_WING, W[1]:SOL_WING, W[2]:SW_MATRIX_OUT_LOW_WING, W[3]:SW_MATRIX_IN_WING
+Programming serial number
+serNum = 1
+Card 0, has serial num 0x00000001 programmed, so it must be preserved
+# Run mpf hardware scan to see if both cards visible
+cd ~/mpf/mpf-examples-dev/phoenix
+mpf hardware scan
+drivers:
+Not implemented
+---------
+opp:
+Connected CPUs:
+ - Port: /dev/ttyACM0 at 115200 baud. Chain Serial: 0
+ -> Board: 0x20 Firmware: 0x2020000
+ - Port: /dev/ttyACM1 at 115200 baud. Chain Serial: 1
+ -> Board: 0x20 Firmware: 0x2020000
+
+Incand cards:
+
+Input cards:
+ - Chain: 0 Board: 0x20 Card: 0 Numbers: [1, 2, 3, 8, 9, 10, 11, 16, 17, 18, 19, 24, 25, 26, 27]
+ - Chain: 1 Board: 0x20 Card: 0 Numbers: [1, 2, 3, 8, 9, 10, 11]
+ - Chain: 1 Board: 0x20 Card: 0 Numbers: [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95]
+
+Solenoid cards:
+ - Chain: 0 Board: 0x20 Card: 0 Numbers: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+ - Chain: 1 Board: 0x20 Card: 0 Numbers: [0, 1, 2, 3, 4, 5, 6, 7]
+
+LEDs:
+ - Chain: 0 Board: 0x20 Card: 0
+ - Chain: 1 Board: 0x20 Card: 0
+
+---------
+Stop called on serial connection /dev/ttyACM1
+Stop called on serial connection /dev/ttyACM0
+
+
+June 1, 2021
+
+Discovered that switch matrix for the williams machine which needs active low is not available in 0.54.6 need to upgrade to 0.55
+
+sudo pip3 install mpf mpf-mc --pre --upgrade
+Since I have a virtual I also had to run the command again without sudo
+pip3 install mpf mpf-mc --pre --upgrade
+
+June 3, 2021
+
+System testing and regression testing 
+
+My full end to end test is the unit tes
+cd ~ ~/mpf/mpf-examples-dev/phoenix
+mpf -t # <-- Test config files have no errors
+python3 -m unittest discover # <-- Exercises every thing Attract mode and plays a who game
+
+To test the cobrapin/opp hardware config
+mpf hardware scan # <-- Both boards present no erros
+
+To individually test hardware switches & coils
+Launch two terminal windows
+mpf both
+
+in second terminal window
+mpf service
+list_coils # <-- This gives lists of coils seen
+coil_pulse c_knocker # <-- Should pulse the knocker
+coil_pulse c_outhole # <-- Kick ball outhole
+list_lights # <-- List defined lights
+light_color l_lane1 red # <-- Turn on light l_lane1 to red
+light_off l_lane1 # <-- Turn off lamp l_lane1
+list_shows # <-- List all dmd shows
+show_play extraball_show # <-- This loops endlessly
+show_stop extraball_show # <-- Breaks loop
+
+quit # <-- Exit mpf service 
+
+June 25, 2021
+
+Test Neopixel lights.
+On board1 plug miidle white wire (data) into pin B15
+Plug 5vdc into 5vdc power and Ground to Ground
+Start mpf both and attract light display should start
+
+
+
+
+
+
+
+ 
+
