@@ -7,6 +7,7 @@ mode:
   priority: 100
 
 event_player:
+  player_tilt_warnings{value==3}: my_game_tilted
   multiplayer_game: player_1_multiplayer_slide
   s_hs_reset_active: high_score_reset
   player_1_ball_started: player_1_multiplayer_slide
@@ -296,12 +297,21 @@ show_player:
         color1: white
 
 variable_player:
+# Was Game tilted
+  my_game_tilted:
+    my_tilted:
+      int: 1
+      action: set 
 # After replay awarded stop awarding again for every extra point.
   replay:
     replay_level_1:
       int: 1
       action: set
   ball_started:
+# My tilt variable
+    my_tilted:
+      int: 0
+      action: set
 # Reset Extra ball awarded to 0
     my_extraball_awarded:
       int: 0
