@@ -233,6 +233,9 @@ modes:
 - shutdown_computer
 
 player_vars:
+# My tilted warning
+  my_tilted:
+    initial_value: 0
 # No replay at settings.replay_score_level1 awarded yet
   replay_level_1:
     initial_value: 0
@@ -264,8 +267,40 @@ player_vars:
     value_type: int
     initial_value: 0
 
-# Used by service mode (Adjustments) replay score, # of balls, max_credits (settings)
+# Used by service mode (Adjustments) replay score, # of balls, max_credits (settings), tilt warnings, tilt wait, tilt sensitivity
 settings:
+  warnings_to_tilt:
+    label: Number of tilt warnings
+    values:
+      0: "no warnings"
+      1: "1"
+      2: "2"
+      3: "3"
+      5: "5"
+      10: "10"
+    default: 3
+    key_type: int
+    sort: 600
+  settle_time:
+    label: Time to wait on tilt to settle bob
+    values:
+      3000: "3s"
+      5000: "5s"
+      10000: "10s"
+    default: 5000
+    key_type: int
+    sort: 610
+  multiple_hit_window:
+    label: Tilt sensitivity
+    values:
+      150: "sensitive"
+      300: "normal"
+      500: "insensitive"
+      1000: "very insensitive"
+    default: 300
+    key_type: int
+    sort: 620
+
   replay_score:
     label: Replay Score
     values:
