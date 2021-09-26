@@ -16,7 +16,7 @@
             duration: .5s
       - type: video
         video: Phoenix
-- time:  '+15'
+- time:  '+10'
   slides:
     attract_dmd_loop_slide_2:
       - type: text
@@ -42,7 +42,7 @@
       - type: video
         video: PhoenixCrySmall
 
-- time: '+15'
+- time: '+13'
   slides:
     attract_dmd_loop_slide_3a:
       transition:
@@ -54,7 +54,7 @@
       - type: image
         image: mpf
 
-- time: '+15'
+- time: '+7'
   slides:
     attract_dmd_loop_slide_3b:
       transition:
@@ -66,7 +66,7 @@
       - type: image
         image: opp
 
-- time: '+15'
+- time: '+7'
   slides:
     attract_dmd_loop_slide_4:
     - type: text
