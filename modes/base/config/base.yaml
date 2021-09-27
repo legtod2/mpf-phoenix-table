@@ -1,5 +1,5 @@
 #config_version=5
-# Last Update Apr 4, 2021
+# Last Update Sept 26, 2021: Fix extraball and music before plunge ball
 # Spinner value starts at 100 but advances to 1000 when bonus count >9 reset back to 100 when bonus count >19
 
 mode:
@@ -41,12 +41,12 @@ slide_player:
       expire: 1s
 
 sound_player:
-#  mode_base_started:
-#    waiting_to_plunge_loop:
-#      loops: -1
-#  LANE_lanes_hit:
-#    waiting_to_plunge_loop:
-#      action: stop
+  mode_base_started:
+    spoons_beat:
+      loops: -1
+  LANE_lanes_hit:
+    spoons_beat:
+      action: stop
 #    base_background_music:
 #    spoons_beat:
 #      loops: -1
@@ -84,7 +84,8 @@ sound_player:
 sequence_shots:
   my_eb_sequence_shot:
     event_sequence:
-      - player_extraball_lamp_on
+#      - player_extraball_lamp_on
+      - logicblock_LANE_lanes_updated{value==5}
       - s_bullseye_active
     cancel_events: cancel_eb
     delay_event_list: 
