@@ -1,5 +1,5 @@
 #config_version=5
-# Last Update Sept 26, 2021: Fix extraball and music before plunge ball
+# Last Update Sept 26, 2021: Fix extraball, show which player# up in DMD and music before plunge ball
 # Spinner value starts at 100 but advances to 1000 when bonus count >9 reset back to 100 when bonus count >19
 
 mode:
@@ -445,7 +445,8 @@ slides:
       #persist_slide: yes
     style: tall_title
   - type: text
-    text: BALL (player1|ball)    (machine|credits_string)
+#    text: BALL (player1|ball)    (machine|credits_string)
+    text: Player1 BALL (player1|ball) (machine|credits_string)
     anchor_y: bottom
     style: small
     y: bottom+1
@@ -488,7 +489,7 @@ slides:
     number_grouping: true
     min_digits: 2
   - type: text
-    text: BALL (player1|ball)    (machine|credits_string)
+    text: PLAYER1 BALL (player1|ball) (machine|credits_string)
     anchor_y: bottom
     style: small
     y: bottom+1
@@ -531,7 +532,7 @@ slides:
     number_grouping: true
     min_digits: 2
   - type: text
-    text: BALL (player2|ball)    (machine|credits_string)
+    text: PLAYER2 BALL (player2|ball) (machine|credits_string)
     anchor_y: bottom
     style: small
     y: bottom+1
@@ -574,7 +575,7 @@ slides:
     number_grouping: true
     min_digits: 2
   - type: text
-    text: BALL (player3|ball)    (machine|credits_string)
+    text: PLAYER3 BALL (player3|ball) (machine|credits_string)
     anchor_y: bottom
     style: small
     y: bottom+1
@@ -617,7 +618,7 @@ slides:
     number_grouping: true
     min_digits: 2
   - type: text
-    text: BALL (player4|ball)    (machine|credits_string)
+    text: PLAYER4 BALL (player4|ball) (machine|credits_string)
     anchor_y: bottom
     style: small
     y: bottom+1
