@@ -6,7 +6,7 @@ except two small python programs (Bonus.py to count down bonus, shutdown.py)
 
 Version 1.0
 Author: legtod2
-Last Update: Sept 25, 2021
+Last Update: Sept 27, 2021
 
 To test.. 
 Open a terminal session(1)
