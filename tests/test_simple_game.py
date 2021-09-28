@@ -93,8 +93,8 @@ class TestSimpleGame(FullMachineTestCase):
         self.advance_time_and_run(1)
         self.hit_and_release_switch("s_bullseye")
         self.advance_time_and_run(1)
-        # Score should add up to 54030
-        self.assertEqual(54030, self.machine.game.player.score)
+        # Score should add up to 64030
+        self.assertEqual(64030, self.machine.game.player.score)
         # Letters P & H Lit
         self.hit_and_release_switch("s_lane1")
         self.advance_time_and_run(.5)
@@ -108,8 +108,8 @@ class TestSimpleGame(FullMachineTestCase):
         self.advance_time_and_run(1)
         self.hit_and_release_switch("s_bullseye")
         self.advance_time_and_run(1)
-        # Score should add up to 109030
-        self.assertEqual(109030, self.machine.game.player.score)
+        # Score should add up to 119030
+        self.assertEqual(119030, self.machine.game.player.score)
         self.hit_and_release_switch("s_lane1")
         self.advance_time_and_run(.5)
         self.hit_and_release_switch("s_lane2")
@@ -120,13 +120,13 @@ class TestSimpleGame(FullMachineTestCase):
         self.advance_time_and_run(.5)
         self.hit_and_release_switch("s_lane5")
         self.advance_time_and_run(1)
-        # Score should add up to 144030
-        self.assertEqual(144030, self.machine.game.player.score)
+        # Score should add up to 154030
+        self.assertEqual(154030, self.machine.game.player.score)
 # Letters O & E Lit and so is extra ball lamp lit
         self.hit_and_release_switch("s_bullseye")
         self.advance_time_and_run(1)
-        # Score should add up to 164030
-        self.assertEqual(164030, self.machine.game.player.score)
+        # Score should add up to 174030
+        self.assertEqual(174030, self.machine.game.player.score)
 # Check to see if extraball awarded
         self.hit_and_release_switch("s_lane1")
         self.advance_time_and_run(.5)
@@ -158,8 +158,8 @@ class TestSimpleGame(FullMachineTestCase):
         self.advance_time_and_run(.5)
         self.hit_and_release_switch("s_lane5")
         self.advance_time_and_run(1)
-        # Score should add up to 309030
-        self.assertEqual(309030, self.machine.game.player.score)
+        # Score should add up to 319030
+        self.assertEqual(319030, self.machine.game.player.score)
 
         # ball 2 drains again but shoot again lit
         self.machine.default_platform.add_ball_to_device(self.machine.ball_devices.trough)
@@ -172,13 +172,13 @@ class TestSimpleGame(FullMachineTestCase):
         self.advance_time_and_run(5) 
         self.hit_and_release_switch("s_lane1")
         self.advance_time_and_run(.5)
-        # Score should add up to 332030
-        self.assertEqual(332030, self.machine.game.player.score)
+        # Score should add up to 342030
+        self.assertEqual(342030, self.machine.game.player.score)
         # Prove score of spinner starts 100 and grow to 1000 when 10 bonus
         self.hit_and_release_switch("s_spinner")
         self.advance_time_and_run(.5)
         # Score should be increased by 100 pts
-        self.assertEqual(334130, self.machine.game.player.score)
+        self.assertEqual(344130, self.machine.game.player.score)
         self.hit_and_release_switch("s_left_outlane")
         self.advance_time_and_run(.5)
         self.hit_and_release_switch("s_left_outlane")
@@ -202,11 +202,11 @@ class TestSimpleGame(FullMachineTestCase):
         # Should have 11 bonus pts Fix this test not properly detecting bonus
         # self.assertEqual(11, self.machine.game.player.bonus)
         # Score should be increased by 10,000 pts
-        self.assertEqual(353130, self.machine.game.player.score)
+        self.assertEqual(363130, self.machine.game.player.score)
         self.hit_and_release_switch("s_spinner")
         self.advance_time_and_run(.5)
         # Score should be increased by 1000 pts not 100 pts
-        self.assertEqual(353230, self.machine.game.player.score)
+        self.assertEqual(363230, self.machine.game.player.score)
  
         # ball 2 drains Shoot again over
         self.machine.default_platform.add_ball_to_device(self.machine.ball_devices.trough)
