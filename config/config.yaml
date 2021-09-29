@@ -45,7 +45,7 @@ mpf-mc:
 window:
   width: 800 
   height: 600
-#  title: Mission Pinball Framework - PHOENIX
+  title: Mission Pinball Framework - PHOENIX
   resizable: true
   fullscreen: false
   borderless: false
@@ -126,6 +126,7 @@ drop_target_banks:
       ball_started
 #      player_turn_will_start
     reset_on_complete: 1s
+     reset_coil_max_wait_ms: 150
   right_bank:
     drop_targets: right_drop1, right_drop2, right_drop3, right_drop4
 # Reminder there are 2 banks of coils , c_rbdropreset2
