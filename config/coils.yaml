@@ -1,6 +1,7 @@
 #config_version=5
 # July 31, 2021 set default_pulse_ms: (5-7 = Weak pulse, 10 = Medium, 15 = strong)
 # Aug 31, Can't enable autofire flippers with EOS config
+# Sept 28, 2021 Increase pulse on drop target bank coils from 15 to 25 ms
 # Bank C (1-0-n)
 autofire_coils:
   center_jet:
@@ -15,15 +16,9 @@ autofire_coils:
   left_slingshot:
     coil: c_lslingshot
     switch: s_lslingshot
-#    timeout_watch_time: 500ms
-#    timeout_max_hits: 1
-#    timeout_disable_time: 500ms
   right_slingshot:
     coil: c_rslingshot
     switch: s_rslingshot
-#    timeout_watch_time: 500ms
-#    timeout_max_hits: 1
-#    timeout_disable_time: 500ms
 
 coils:
 # Non autofired coil 0-0-n
@@ -44,28 +39,29 @@ coils:
     pulse_events: 
       - s_left_inlane_active
       - s_lane2_active
+      - ball_started
     default_pulse_ms: 10
   c_lbdropreset1:
     number: 0-0-10
     label:
     tags:
-    default_pulse_ms: 15
+    default_pulse_ms: 25
   c_lbdropreset2:
     number: 0-0-11
     label:
     tags:
-    default_pulse_ms: 15
+    default_pulse_ms: 25
   c_rbdropreset1:
     number: 0-0-0
     label:
     tags:
-    default_pulse_ms: 15
+    default_pulse_ms: 25
   c_rbdropreset2:
     number: 0-0-12
     label:
     tags:
-    default_pulse_ms: 15
-# Reset right center drop when left inlane or lane 2 hit
+    default_pulse_ms: 25
+# Reset right center drop when left inlane or lane 2 hit or begin of game
   c_rcdropreset:
     number: 0-0-13
     label:
@@ -73,6 +69,7 @@ coils:
     pulse_events: 
       - s_right_inlane_active
       - s_lane4_active
+      - ball_started
     default_pulse_ms: 10
 # See settings.replay_score in config.yaml, fire knocker if replay or extraball awarded or match awarded (Display credit_added slide)
 
@@ -137,17 +134,12 @@ coils:
   c_lslingshot:
     number: 1-0-3
     default_pulse_ms: 7
-#    default_recycle: true
-#    platform_settings:
-#      recycle_factor: 2
 
 # Right slingshot (Working)
   c_rslingshot:
     number: 1-0-2
     default_pulse_ms: 7
-#    default_recycle: true
-#    platform_settings:
-#      recycle_factor: 2
+
     
 
 
